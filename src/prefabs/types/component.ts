@@ -10,6 +10,7 @@ export interface PrefabPartial {
 
 export interface PrefabComponent {
   type?: 'COMPONENT';
+  label?: string;
   actions?: PrefabAction[];
   descendants: PrefabComponent[];
   name: string;
