@@ -46,10 +46,9 @@ export const component = (
   name: string,
   attrs: UnresolvedAttributes,
   descendants: PrefabReference[],
-): PrefabReference =>
-  ({
-    name,
-    ...resolveAttributes(attrs),
-    descendants,
-    type: 'COMPONENT',
-  } as PrefabReference);
+): PrefabComponent => ({
+  name,
+  ...resolveAttributes(attrs),
+  descendants,
+  type: 'COMPONENT',
+});
