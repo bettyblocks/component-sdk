@@ -11,7 +11,7 @@ export interface PrefabPartial {
 export interface PrefabComponent {
   type?: 'COMPONENT';
   actions?: PrefabAction[];
-  descendants: PrefabComponent[];
+  descendants: PrefabReference[];
   name: string;
   options: PrefabComponentOption[];
   $afterCreate?: Hook[];
