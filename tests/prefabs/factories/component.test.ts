@@ -98,3 +98,33 @@ test('component builds an option', (t) => {
   t.deepEqual(result, expected);
   t.end();
 });
+
+test('component builds a style in an option', (t) => {
+  const result = component(
+    'Button',
+    {
+      options: {},
+      style: {
+        name: 'Pappel',
+        overwrite: {
+          boxShadow: 'none',
+        },
+      },
+    },
+    [],
+  );
+  const expected = {
+    name: 'Button',
+    options: [],
+    style: {
+      name: 'Pappel',
+      overwrite: {
+        boxShadow: 'none',
+      },
+    },
+    descendants: [],
+    type: 'COMPONENT',
+  };
+  t.deepEqual(result, expected);
+  t.end();
+});

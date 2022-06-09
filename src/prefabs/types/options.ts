@@ -18,7 +18,39 @@ export interface ValueRef extends PrefabComponentOptionBase {
 }
 
 export type PrefabComponentOption = ValueDefault | ValueRef;
+
+export type PrefabComponentStyle = {
+  name?: string;
+  overwrite?: {
+    backgroundColor?: {
+      value: string;
+      type: string;
+    };
+    borderColor?: {
+      value: string;
+      type: string;
+    };
+    borderRadius?: string | string[];
+    borderStyle?: string;
+    borderWidth?: string | string[];
+    boxShadow?: string;
+    color?: {
+      value: string;
+      type: string;
+    };
+    fontFamily?: string;
+    fontSize?: string;
+    fontStyle?: string;
+    fontWeight?: string;
+    letterSpacing?: string;
+    lineHeight?: string;
+    padding?: string | string[];
+    textDecoration?: string;
+    textTransform?: string;
+  };
+};
 export type OptionProducer = (key: string) => PrefabComponentOption;
+export type StyleProducer = (key: string) => PrefabComponentStyle;
 
 export interface BaseConfiguration {
   condition?: {

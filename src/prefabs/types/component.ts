@@ -1,5 +1,5 @@
 import { PrefabAction } from './actions';
-import { PrefabComponentOption } from './options';
+import { PrefabComponentOption, PrefabComponentStyle } from './options';
 import { Hook } from './hook';
 
 export type PrefabReference = PrefabPartial | PrefabComponent;
@@ -21,4 +21,5 @@ export interface PrefabComponent {
   ref?: {
     id: string;
   };
+  style?: PrefabComponentStyle;
 }
