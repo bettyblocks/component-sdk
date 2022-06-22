@@ -64,11 +64,11 @@ export interface ParameterOptionWithComponentRef {
 }
 
 export interface ParameterOptionWithPageId {
-  name: string,
-  pageId: string,
+  name?: string;
+  pageId: string;
   id?: string,
   endpointId?: string,
-  paramters?: {name: string, value: string}[]
+  parameters?: {name: string, value: string}[]
 }
 
 export type PrefabInteractionParameter =
