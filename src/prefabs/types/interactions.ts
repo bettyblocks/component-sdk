@@ -63,10 +63,18 @@ export interface ParameterOptionWithComponentRef {
   };
 }
 
+export interface ParameterOptionWithPageId {
+  name: string,
+  pageId: string,
+  id: string,
+  paramters?: Record<string, string>
+}
+
 export type PrefabInteractionParameter =
   | ParameterOptionWithId
   | ParameterOptionWithPath
-  | ParameterOptionWithComponentRef;
+  | ParameterOptionWithComponentRef
+  | ParameterOptionWithPageId;
 
 export interface PrefabCustomInteraction extends BasePrefabInteraction {
   type: InteractionType.Custom
