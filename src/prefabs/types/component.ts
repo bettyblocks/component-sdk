@@ -9,6 +9,7 @@ export interface PrefabPartial {
 }
 export interface PrefabWrapper {
   type: 'WRAPPER';
+  label?: string;
   descendants: PrefabReference[];
 }
 

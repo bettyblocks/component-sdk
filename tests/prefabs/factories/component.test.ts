@@ -59,7 +59,7 @@ test('partial builds empty partial', (t) => {
 });
 
 test('builds a wrapper prefab', (t) => {
-  const result = wrapper([]);
+  const result = wrapper({}, []);
   const expected = {
     type: 'WRAPPER',
     descendants: [],
@@ -70,7 +70,7 @@ test('builds a wrapper prefab', (t) => {
 });
 
 test('builds a wrapper prefab with descendants', (t) => {
-  const result = wrapper([component('ROW', {options: {}}, [])]);
+  const result = wrapper({},[component('ROW', {options: {}}, [])]);
   const expected = {
     type: 'WRAPPER',
     descendants: [{name: "ROW", options: [], descendants: [], type: 'COMPONENT'}],
@@ -81,7 +81,7 @@ test('builds a wrapper prefab with descendants', (t) => {
 });
 
 test('builds a wrapper prefab with descendants and inner wrapper', (t) => {
-  const result = wrapper([component('ROW', {options: {}}, [wrapper([])])]);
+  const result = wrapper({},[component('ROW', {options: {}}, [wrapper({},[])])]);
   const expected = {
     type: 'WRAPPER',
     descendants: [{name: "ROW", options: [], descendants: [{type: 'WRAPPER', descendants: []}], type: 'COMPONENT'}],
