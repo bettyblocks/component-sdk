@@ -33,6 +33,22 @@ const resolveAttributes = (attrs: UnresolvedAttributes): RequiredAttrs => {
 export const partial = (): PrefabReference => ({
   type: 'PARTIAL',
 });
+
+export type WrapperAttrs = {
+  label?: string
+}
+
+/**
+ * Create a wrapper prefab
+ *
+ * @returns
+ */
+ export const wrapper = (attrs: WrapperAttrs, descendants: PrefabReference[]): PrefabReference => ({
+  type: 'WRAPPER',
+  ...(attrs.label ? {label: attrs.label} : {}),
+  descendants
+});
+
 /**
  * Create a component prefab
  *
