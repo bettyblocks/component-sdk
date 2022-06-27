@@ -1,4 +1,5 @@
 export { action } from './action';
+export { authenticationProfile } from './authenticationProfile';
 export { actionInputObjects } from './actionInputObjects';
 export { color } from './color';
 export { endpoint } from './endpoint';
