@@ -14,14 +14,9 @@ type Attributes =
   | Omit<ValueDefault, RedundantKeys>
   | Omit<ValueRef, RedundantKeys>;
 
-const defaultAttributes = {
-  value: [],
-};
-
 export const action =
   (label: string, attrs: Attributes): OptionProducer =>
   (key) => ({
-    ...defaultAttributes,
     ...attrs,
     key,
     type: 'ACTION',

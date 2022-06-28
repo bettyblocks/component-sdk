@@ -49,3 +49,41 @@ test('actionInputObjects builds options with configuration', (t) => {
   t.deepEqual(result, expected);
   t.end();
 });
+
+test('action builds options with ref. The OptionProducer allows only one value', (t) => {
+  const result = action('Action has a ref', {
+    ref: {
+      value: '#actionId',
+    },
+    configuration: {
+      apiVersion: 'v1',
+      condition: {
+        type: 'SHOW',
+        option: 'linkType',
+        comparator: 'EQ',
+        value: 'action',
+      },
+    },
+  })('action');
+
+  const expected = {
+    ref: {
+      value: '#actionId',
+    },
+    label: 'Action has a ref',
+    key: 'action',
+    type: 'ACTION',
+    configuration: {
+      apiVersion: 'v1',
+      condition: {
+        type: 'SHOW',
+        option: 'linkType',
+        comparator: 'EQ',
+        value: 'action',
+      },
+    },
+  };
+
+  t.deepEqual(result, expected);
+  t.end();
+});
