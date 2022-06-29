@@ -66,9 +66,9 @@ export interface ParameterOptionWithComponentRef {
 export interface ParameterOptionWithPageId {
   name?: string;
   pageId: string;
-  id?: string,
-  endpointId?: string,
-  parameters?: {name: string, value: string}[]
+  id?: string;
+  endpointId?: string;
+  parameters?: { name: string; value: string }[];
 }
 
 export type PrefabInteractionParameter =
@@ -78,11 +78,11 @@ export type PrefabInteractionParameter =
   | ParameterOptionWithPageId;
 
 export interface PrefabCustomInteraction extends BasePrefabInteraction {
-  type: InteractionType.Custom
+  type: InteractionType.Custom;
 }
 
 export interface PrefabGlobalInteraction extends BasePrefabInteraction {
-  type: InteractionType.Global,
+  type: InteractionType.Global;
   parameters: PrefabInteractionParameter[];
 }
 
@@ -101,4 +101,4 @@ export interface PrefabVariable {
   options?: unknown;
 }
 
-export type PrefabVariableKind = 'construct' | 'object' | 'string';
+export type PrefabVariableKind = 'construct' | 'object' | 'string' | 'integer';
