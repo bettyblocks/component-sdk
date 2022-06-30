@@ -49,8 +49,10 @@ export type PrefabComponentStyle = {
     textTransform?: string;
   };
 };
+export type PrefabComponentRef = {
+  id: string;
+};
 export type OptionProducer = (key: string) => PrefabComponentOption;
-export type StyleProducer = (key: string) => PrefabComponentStyle;
 
 export interface BaseConfiguration {
   condition?: {
