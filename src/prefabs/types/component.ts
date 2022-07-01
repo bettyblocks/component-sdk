@@ -14,6 +14,7 @@ export interface PrefabWrapper {
 }
 
 export interface PrefabComponent {
+  id?: string;
   type?: 'COMPONENT';
   label?: string;
   actions?: PrefabAction[];

@@ -11,7 +11,7 @@ export type BeforeCreateArgs = {
   components: {
     [name: string]: any;
   };
-  helpers: {
+  helpers?: {
     [name: string]: any;
   };
 };
