@@ -1,11 +1,10 @@
 import {
-  PrefabComponentOption,
+  OptionProducer,
   ValueDefault,
   ValueRef,
 } from '../../types/options';
 import { ThemeColor } from '../../types/prefabs/theme-color';
 
-type OptionProducer = (key: string) => PrefabComponentOption;
 
 // typescript issue #36981
 // Omit is currently desctructive to union/extended types see
@@ -15,7 +14,7 @@ type Attributes =
   | Omit<ValueDefault, RedundantKeys>
   | Omit<ValueRef, RedundantKeys>;
 
-type ColorAttributes = Omit<Attributes, 'value'> & { value: ThemeColor };
+type ColorAttributes = Omit<Attributes, 'value'> & { ref?: {id?: string}, value: ThemeColor };
 
 const defaultAttributes = {
   value: [],

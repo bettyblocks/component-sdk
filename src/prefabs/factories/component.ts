@@ -1,4 +1,5 @@
 import type { IdentityRecordBy } from '../../type-utils';
+import { LinkedOptionProducer } from '../types';
 import type { PrefabComponent, PrefabReference } from '../types/component';
 
 function isNotNullEntry<T, X>(entry: [T, X]): entry is [T, NonNullable<X>] {
@@ -35,7 +36,8 @@ export const partial = (): PrefabReference => ({
 });
 
 export type WrapperAttrs = {
-  label?: string
+  label?: string;
+  options?: LinkedOptionProducer[];
 }
 
 /**
@@ -43,11 +45,17 @@ export type WrapperAttrs = {
  *
  * @returns
  */
- export const wrapper = (attrs: WrapperAttrs, descendants: PrefabReference[]): PrefabReference => ({
-  type: 'WRAPPER',
-  ...(attrs.label ? {label: attrs.label} : {}),
-  descendants
-});
+ export const wrapper = (attrs: WrapperAttrs, descendants: PrefabReference[]): PrefabReference => {
+  const labelField = attrs.label ? {label: attrs.label} : {}
+  const options = attrs.options?.map((option, index) => (option(`${index}`))) || []
+
+  return {
+    type: 'WRAPPER',
+    ...labelField,
+    options,
+    descendants,
+  };
+ };
 
 /**
  * Create a component prefab
