@@ -35,10 +35,12 @@ export enum InteractionType {
   Global = 'Global',
 }
 
+// TODO: the sourceComponentId shouldn't be allowed to be defined twice here.
 export interface BasePrefabInteraction {
   name: string;
+  sourceComponentId?: string;
   ref: {
-    sourceComponentId: string;
+    sourceComponentId?: string;
     targetComponentId?: string;
   };
   targetOptionName?: string;
