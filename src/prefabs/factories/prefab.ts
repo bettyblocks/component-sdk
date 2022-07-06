@@ -11,6 +11,16 @@ export type BeforeCreateArgs = {
   components: {
     [name: string]: any;
   };
+  helpers: {
+    camelToSnakeCase: (str: string) => string;
+    useCurrentPageId: () => string;
+    useCurrentPartialId: () => string;
+    useModelQuery: (options: Record<string, any>) => {
+      loading: boolean;
+      data: Record<string, any> | null;
+      error: Record<string, any> | null;
+    };
+  };
 };
 
 type BeforeCreate = (args: BeforeCreateArgs) => any;
