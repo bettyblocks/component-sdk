@@ -3,10 +3,8 @@ import {
   PrefabWrapperLinkedOption,
 } from '../../types/options';
 
-// typescript issue #36981
-// Omit is currently desctructive to union/extended types see
-// So we have to Omit each variant as a work around
-type Attributes = {value?: PrefabWrapperLinkedOption['value']}
+type RedundantKeys = 'type' | 'key' | 'label';
+type Attributes = Partial<Omit<PrefabWrapperLinkedOption, RedundantKeys>>
 
 export const linked =
   (label: string, attrs: Attributes): LinkedOptionProducer =>
