@@ -2,7 +2,8 @@ import test from 'tape';
 import { linked } from '../../../src/prefabs/factories/options';
 
 test('linked builds a linked option with a value ref', (t) => {
-  const result = linked('my linked label', {
+  const result = linked({
+    label: 'my linked label',
     value: { ref: {componentId: '#1', optionId: '#2'}},
   })('0');
 

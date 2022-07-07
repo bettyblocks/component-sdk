@@ -3,15 +3,15 @@ import {
   PrefabWrapperLinkedOption,
 } from '../../types/options';
 
-type RedundantKeys = 'type' | 'key' | 'label';
+type RedundantKeys = 'type' | 'key';
 type Attributes = Partial<Omit<PrefabWrapperLinkedOption, RedundantKeys>>
 
 export const linked =
-  (label: string, attrs: Attributes): LinkedOptionProducer =>
+  (attrs: Attributes): LinkedOptionProducer =>
   (key: string) =>
   ({
     ...attrs,
+    label: attrs.label || '',
     key,
     type: 'LINKED_OPTION',
-    label,
   });
