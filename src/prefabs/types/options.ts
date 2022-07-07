@@ -9,15 +9,27 @@ export interface PrefabComponentOptionBase {
 
 export interface ValueDefault extends PrefabComponentOptionBase {
   value: boolean | string[] | string | number | ValueConfig;
+  ref?: {
+    id?: string;
+  };
 }
 
 export interface ValueRef extends PrefabComponentOptionBase {
   ref: {
+    id?: string;
     value: string | string[];
   };
 }
 
 export type PrefabComponentOption = ValueDefault | ValueRef;
+export interface PrefabWrapperLinkedOption extends PrefabComponentOptionBase {
+  value?: {
+    ref: {
+      componentId: string;
+      optionId: string;
+    }
+  };
+}
 
 export type PrefabComponentStyle = {
   name?: string;
@@ -50,6 +62,8 @@ export type PrefabComponentStyle = {
   };
 };
 export type OptionProducer = (key: string) => PrefabComponentOption;
+export type LinkedOptionProducer = (key: string) => PrefabWrapperLinkedOption;
+
 export type StyleProducer = (key: string) => PrefabComponentStyle;
 
 export interface BaseConfiguration {

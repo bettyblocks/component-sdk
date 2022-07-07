@@ -15,6 +15,7 @@ export { number } from './number';
 export { text } from './text';
 export { icon } from './icon';
 export { filter } from './filter';
+export { linked } from './linked';
 export { model } from './model';
 export { property } from './property';
 
