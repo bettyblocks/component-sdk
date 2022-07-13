@@ -33,21 +33,26 @@ const resolveAttributes = (attrs: UnresolvedAttributes): RequiredAttrs => {
  */
 export const partial = (): PrefabReference => ({
   type: 'PARTIAL',
+  partialId: '',
 });
 
 export type WrapperAttrs = {
   label?: string;
   options?: LinkedOptionProducer[];
-}
+};
 
 /**
  * Create a wrapper prefab
  *
  * @returns
  */
- export const wrapper = (attrs: WrapperAttrs, descendants: PrefabReference[]): PrefabReference => {
-  const labelField = attrs.label ? {label: attrs.label} : {}
-  const options = attrs.options?.map((option, index) => (option(`${index}`))) || []
+export const wrapper = (
+  attrs: WrapperAttrs,
+  descendants: PrefabReference[],
+): PrefabReference => {
+  const labelField = attrs.label ? { label: attrs.label } : {};
+  const options =
+    attrs.options?.map((option, index) => option(`${index}`)) || [];
 
   return {
     type: 'WRAPPER',
@@ -55,7 +60,7 @@ export type WrapperAttrs = {
     options,
     descendants,
   };
- };
+};
 
 /**
  * Create a component prefab

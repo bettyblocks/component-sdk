@@ -1,9 +1,14 @@
 import test from 'tape';
-import { component, partial, wrapper } from '../../../src/prefabs/factories/component';
+import {
+  component,
+  partial,
+  wrapper,
+} from '../../../src/prefabs/factories/component';
 import {
   variable,
   showIfTrue,
   toggle,
+  reconfigure,
 } from '../../../src/prefabs/factories/options';
 
 test('component builds empty component', (t) => {
@@ -52,6 +57,7 @@ test('partial builds empty partial', (t) => {
   const result = partial();
   const expected = {
     type: 'PARTIAL',
+    partialId: '',
   };
 
   t.deepEqual(result, expected);
@@ -71,11 +77,13 @@ test('builds a wrapper prefab', (t) => {
 });
 
 test('builds a wrapper prefab with descendants', (t) => {
-  const result = wrapper({},[component('ROW', {options: {}}, [])]);
+  const result = wrapper({}, [component('ROW', { options: {} }, [])]);
   const expected = {
     type: 'WRAPPER',
     options: [],
-    descendants: [{name: "ROW", options: [], descendants: [], type: 'COMPONENT'}],
+    descendants: [
+      { name: 'ROW', options: [], descendants: [], type: 'COMPONENT' },
+    ],
   };
 
   t.deepEqual(result, expected);
@@ -83,17 +91,25 @@ test('builds a wrapper prefab with descendants', (t) => {
 });
 
 test('builds a wrapper prefab with descendants and inner wrapper', (t) => {
-  const result = wrapper({},[component('ROW', {options: {}}, [wrapper({},[])])]);
+  const result = wrapper({}, [
+    component('ROW', { options: {} }, [wrapper({}, [])]),
+  ]);
   const expected = {
     type: 'WRAPPER',
     options: [],
-    descendants: [{name: "ROW", options: [], descendants: [{type: 'WRAPPER', options: [], descendants: []}], type: 'COMPONENT'}],
+    descendants: [
+      {
+        name: 'ROW',
+        options: [],
+        descendants: [{ type: 'WRAPPER', options: [], descendants: [] }],
+        type: 'COMPONENT',
+      },
+    ],
   };
 
   t.deepEqual(result, expected);
   t.end();
 });
-
 
 test('component builds an option', (t) => {
   const result = component(
@@ -162,6 +178,34 @@ test('component builds a style in an option', (t) => {
     descendants: [],
     type: 'COMPONENT',
   };
+  t.deepEqual(result, expected);
+  t.end();
+});
+
+test('component is a data table with a "reconfigure" option', (t) => {
+  const result = component(
+    'Data table',
+    {
+      options: {
+        reconfigure: reconfigure('Reconfigure', { value: '' }),
+      },
+    },
+    [],
+  );
+  const expected = {
+    name: 'Data table',
+    options: [
+      {
+        value: '',
+        label: 'Reconfigure',
+        key: 'reconfigure',
+        type: 'RECONFIGURE',
+      },
+    ],
+    descendants: [],
+    type: 'COMPONENT',
+  };
+
   t.deepEqual(result, expected);
   t.end();
 });

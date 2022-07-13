@@ -46,6 +46,7 @@ test('builds a prefab with structure where the root is a partial', (t) => {
     structure: [
       {
         type: 'PARTIAL',
+        partialId: '',
       },
     ],
   };
@@ -78,6 +79,7 @@ test('builds a prefab with structure where the root is a component and has a par
         descendants: [
           {
             type: 'PARTIAL',
+            partialId: '',
           },
         ],
         type: 'COMPONENT',

@@ -18,5 +18,6 @@ export { filter } from './filter';
 export { linked } from './linked';
 export { model } from './model';
 export { property } from './property';
+export { reconfigure } from './reconfigure';
 
 export * from './configurations';
