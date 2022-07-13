@@ -1,11 +1,16 @@
 import { PrefabAction } from './actions';
-import { PrefabComponentOption, PrefabWrapperLinkedOption, PrefabComponentStyle } from './options';
+import {
+  PrefabComponentOption,
+  PrefabWrapperLinkedOption,
+  PrefabComponentStyle,
+} from './options';
 import { Hook } from './hook';
 
 export type PrefabReference = PrefabPartial | PrefabComponent | PrefabWrapper;
 
 export interface PrefabPartial {
   type: 'PARTIAL';
+  partialId: string;
 }
 export interface PrefabWrapper {
   type: 'WRAPPER';
