@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "build/index.js",
   "types": "build/index.d.ts",
-  "author": "Martijn Jansen <martijn.jansen@bettyblocks.com>",
+  "author": "Benjamin Kagia <benjamin.kagia@bettyblocks.com>",
   "license": "Apache-2.0",
   "repository": {
     "type": "git",
@@ -18,7 +18,7 @@
     "fix": "prettier --check 'src/**/*.ts' 'tests/**/*.ts'",
     "fix:write": "prettier --write 'src/**/*.ts' 'tests/**/*.ts'",
     "lint": "eslint src tests --ext .ts",
-    "test": "ts-node node_modules/tape/bin/tape tests/**/*.test.ts | tap-diff",
+    "test": "ts-node node_modules/tape/bin/tape tests/**/*.test.ts",
     "prepare": "husky install"
   },
   "devDependencies": {
@@ -37,7 +37,6 @@
     "husky": "^8.0.1",
     "prettier": "2.5.1",
     "semantic-release": "^19.0.2",
-    "tap-diff": "^0.1.1",
     "tape": "^5.3.1",
     "ts-node": "^10.3.0",
     "typedoc": "^0.22.6",
