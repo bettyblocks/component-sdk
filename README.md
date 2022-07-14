@@ -35,3 +35,10 @@ To run tests, run the following command
 ```bash
   npm run test
 ```
+
+## Develoment Notes
+
+Please add unit tests for all new functionality.
+
+You can use yarn link to test this package locally to make sure
+it performs as expected.
