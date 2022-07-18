@@ -25,6 +25,6 @@ export const childSelector =
     ...defaultAttributes,
     ...attrs,
     key,
-    type: 'NUMBER',
+    type: 'CHILD_SELECTOR',
     label,
   });
