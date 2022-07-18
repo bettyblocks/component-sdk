@@ -1,3 +1,4 @@
+import { PartialBy } from '../../../type-utils';
 import {
   PrefabComponentOption,
   ValueDefault,
@@ -11,19 +12,19 @@ type OptionProducer = (key: string) => PrefabComponentOption;
 // So we have to Omit each variant as a work around
 type RedundantKeys = 'type' | 'key' | 'label';
 type Attributes =
-  | Omit<ValueDefault, RedundantKeys>
+  | PartialBy<Omit<ValueDefault, RedundantKeys>, 'value'>
   | Omit<ValueRef, RedundantKeys>;
 
 const defaultAttributes = {
-  value: [],
+  value: '',
 };
 
 export const childSelector =
-  (label: string, attrs: Attributes): OptionProducer =>
+  (label: string, attrs: Attributes = {}): OptionProducer =>
   (key) => ({
     ...defaultAttributes,
     ...attrs,
     key,
-    type: 'CHILD_SELECTOR',
+    type: 'NUMBER',
     label,
   });
