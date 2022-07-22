@@ -4,6 +4,7 @@ import { Model } from '../types/model';
 import { Prefab } from '../types/prefabs';
 import { Property, PropertyKind } from '../types/property';
 import { BettyPrefabs } from '../types/constants/BettyPrefabs';
+import { PreparedAction } from '../types/helpers';
 
 type Attributes = Omit<Prefab, 'name' | 'structure' | 'beforeCreate'>;
 
@@ -25,15 +26,22 @@ export type BeforeCreateArgs = {
       error: Record<string, any> | null;
     };
     cloneStructure: (prefabs: Prefab[], prefabName: string) => PrefabReference;
+    prepareAction: (
+      componentId: string,
+      idProperty: Property,
+      properties: Property[],
+      actionTemplate: 'update',
+    ) => Promise<PreparedAction>;
     makeBettyInput: (
       prefabName: string,
       model: Model,
       property: Property,
       variable: ActionVariable,
-      relatedIdProperties: Record<string, string>,
+      relatedIdProperties?: Record<string, string>,
     ) => PrefabReference;
     BettyPrefabs: typeof BettyPrefabs;
     PropertyKind: PropertyKind;
+    createUuid: () => string;
   };
 };
 
