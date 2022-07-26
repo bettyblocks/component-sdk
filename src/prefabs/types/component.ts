@@ -1,5 +1,6 @@
 import { PrefabAction } from './actions';
 import {
+  OptionCategory,
   PrefabComponentOption,
   PrefabWrapperLinkedOption,
   PrefabComponentStyle,
@@ -16,6 +17,7 @@ export interface PrefabWrapper {
   type: 'WRAPPER';
   label?: string;
   descendants: PrefabReference[];
+  optionCategories?: OptionCategory[];
   options: PrefabWrapperLinkedOption[];
 }
 
@@ -26,6 +28,7 @@ export interface PrefabComponent {
   actions?: PrefabAction[];
   descendants: PrefabReference[];
   name: string;
+  optionCategories?: OptionCategory[];
   options: PrefabComponentOption[];
   $afterCreate?: Hook[];
   $afterDelete?: Hook[];

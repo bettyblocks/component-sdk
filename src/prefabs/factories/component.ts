@@ -1,6 +1,7 @@
 import type { IdentityRecordBy } from '../../type-utils';
 import { LinkedOptionProducer } from '../types';
 import type { PrefabComponent, PrefabReference } from '../types/component';
+import type { OptionCategory } from '../types/options';
 
 function isNotNullEntry<T, X>(entry: [T, X]): entry is [T, NonNullable<X>] {
   const [, option] = entry;
@@ -19,9 +20,14 @@ const resolveAttributes = (attrs: UnresolvedAttributes): RequiredAttrs => {
   const options = Object.entries(attrs.options)
     .filter(isNotNullEntry)
     .map(([key, option]) => option(key));
+  const optionCategories =
+    attrs.optionCategories && attrs.optionCategories.length !== 0
+      ? { optionCategories: attrs.optionCategories }
+      : {};
 
   return {
     ...attrs,
+    ...optionCategories,
     options,
   };
 };
@@ -38,7 +44,8 @@ export const partial = (): PrefabReference => ({
 
 export type WrapperAttrs = {
   label?: string;
-  options?: LinkedOptionProducer[];
+  optionCategories?: OptionCategory[];
+  options?: Record<string, LinkedOptionProducer>;
 };
 
 /**
@@ -51,12 +58,18 @@ export const wrapper = (
   descendants: PrefabReference[],
 ): PrefabReference => {
   const labelField = attrs.label ? { label: attrs.label } : {};
-  const options =
-    attrs.options?.map((option, index) => option(`${index}`)) || [];
+  const options = Object.entries(attrs.options || {}).map(([key, linked]) =>
+    linked(key),
+  );
+  const optionCategories =
+    attrs.optionCategories && attrs.optionCategories.length !== 0
+      ? { optionCategories: attrs.optionCategories }
+      : {};
 
   return {
     type: 'WRAPPER',
     ...labelField,
+    ...optionCategories,
     options,
     descendants,
   };
