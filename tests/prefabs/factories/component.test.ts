@@ -1,9 +1,5 @@
 import test from 'tape';
-import {
-  component,
-  partial,
-  wrapper,
-} from '../../../src/prefabs/factories/component';
+import { component } from '../../../src/prefabs/factories/component';
 import {
   variable,
   showIfTrue,
@@ -47,64 +43,6 @@ test('component ignores null options', (t) => {
     ],
     descendants: [],
     type: 'COMPONENT',
-  };
-
-  t.deepEqual(result, expected);
-  t.end();
-});
-
-test('partial builds empty partial', (t) => {
-  const result = partial();
-  const expected = {
-    type: 'PARTIAL',
-    partialId: '',
-  };
-
-  t.deepEqual(result, expected);
-  t.end();
-});
-
-test('builds a wrapper prefab', (t) => {
-  const result = wrapper({}, []);
-  const expected = {
-    type: 'WRAPPER',
-    options: [],
-    descendants: [],
-  };
-
-  t.deepEqual(result, expected);
-  t.end();
-});
-
-test('builds a wrapper prefab with descendants', (t) => {
-  const result = wrapper({}, [component('ROW', { options: {} }, [])]);
-  const expected = {
-    type: 'WRAPPER',
-    options: [],
-    descendants: [
-      { name: 'ROW', options: [], descendants: [], type: 'COMPONENT' },
-    ],
-  };
-
-  t.deepEqual(result, expected);
-  t.end();
-});
-
-test('builds a wrapper prefab with descendants and inner wrapper', (t) => {
-  const result = wrapper({}, [
-    component('ROW', { options: {} }, [wrapper({}, [])]),
-  ]);
-  const expected = {
-    type: 'WRAPPER',
-    options: [],
-    descendants: [
-      {
-        name: 'ROW',
-        options: [],
-        descendants: [{ type: 'WRAPPER', options: [], descendants: [] }],
-        type: 'COMPONENT',
-      },
-    ],
   };
 
   t.deepEqual(result, expected);
