@@ -1,5 +1,11 @@
 export type ValueConfig = Record<string, unknown>;
 
+export type OptionCategory = {
+  label: string;
+  expanded?: boolean;
+  members: string[];
+};
+
 export interface PrefabComponentOptionBase {
   label: string;
   key: string;
@@ -27,7 +33,7 @@ export interface PrefabWrapperLinkedOption extends PrefabComponentOptionBase {
     ref: {
       componentId: string;
       optionId: string;
-    }
+    };
   };
 }
 
