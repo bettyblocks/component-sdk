@@ -10,6 +10,8 @@ import {
   toggle,
   reconfigure,
 } from '../../../src/prefabs/factories/options';
+import { PrefabConfiguration } from '../../../src/prefabs/types/options';
+import { PrefabReference } from '../../../src/prefabs/types/component';
 
 test('component builds empty component', (t) => {
   const result = component('Text', { options: {} }, []);
@@ -202,6 +204,36 @@ test('component is a data table with a "reconfigure" option', (t) => {
         type: 'RECONFIGURE',
       },
     ],
+    descendants: [],
+    type: 'COMPONENT',
+  };
+
+  t.deepEqual(result, expected);
+  t.end();
+});
+
+test('component makes use of PrefabConfiguration interface', (t) => {
+  // Create prefab logic equal to mui-component-set
+  const componentItem = (
+    config: PrefabConfiguration,
+    descendants: PrefabReference[] = [],
+  ) => {
+    const options = { ...config.options };
+    const style = config.style ? { ...config.style } : undefined;
+    const ref = config.ref ? { ...config.ref } : undefined;
+
+    return component('Carousel', { options, style, ref }, descendants);
+  };
+
+  const result = componentItem(
+    { ref: { id: '#component' }, style: { overwrite: { fontSize: '14' } } },
+    [],
+  );
+  const expected = {
+    name: 'Carousel',
+    options: [],
+    style: { overwrite: { fontSize: '14' } },
+    ref: { id: '#component' },
     descendants: [],
     type: 'COMPONENT',
   };

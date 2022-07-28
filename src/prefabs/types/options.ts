@@ -27,7 +27,7 @@ export interface PrefabWrapperLinkedOption extends PrefabComponentOptionBase {
     ref: {
       componentId: string;
       optionId: string;
-    }
+    };
   };
 }
 
@@ -61,6 +61,13 @@ export type PrefabComponentStyle = {
     textTransform?: string;
   };
 };
+
+export interface PrefabConfiguration {
+  options?: Record<string, OptionProducer>;
+  style?: PrefabComponentStyle;
+  ref?: { id: string };
+}
+
 export type OptionProducer = (key: string) => PrefabComponentOption;
 export type LinkedOptionProducer = (key: string) => PrefabWrapperLinkedOption;
 
