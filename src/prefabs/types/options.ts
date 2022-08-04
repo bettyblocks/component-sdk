@@ -29,6 +29,7 @@ export interface ValueRef extends PrefabComponentOptionBase {
 
 export type PrefabComponentOption = ValueDefault | ValueRef;
 export interface PrefabWrapperLinkedOption extends PrefabComponentOptionBase {
+  as?: string
   value?: {
     ref: {
       componentId: string;

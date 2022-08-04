@@ -1,10 +1,14 @@
 import test from 'tape';
-import { linked } from '../../../src/prefabs/factories/options';
+import { linked, hideIf } from '../../../src/prefabs/factories/options';
 
 test('linked builds a linked option with a value ref', (t) => {
   const result = linked({
     label: 'my linked label',
-    value: { ref: {componentId: '#1', optionId: '#2'}},
+    as: 'BUTTONGROUP',
+    configuration: {
+      condition: hideIf('model', 'EQ', ''),
+    },
+    value: { ref: { componentId: '#1', optionId: '#2' } },
   })('0');
 
   const expected = {
@@ -12,7 +16,16 @@ test('linked builds a linked option with a value ref', (t) => {
       ref: {
         componentId: '#1',
         optionId: '#2',
-      }
+      },
+    },
+    as: 'BUTTONGROUP',
+    configuration: {
+      condition: {
+        type: 'HIDE',
+        option: 'model',
+        comparator: 'EQ',
+        value: '',
+      },
     },
     key: '0',
     type: 'LINKED_OPTION',
