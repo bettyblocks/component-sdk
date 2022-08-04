@@ -4,8 +4,8 @@ import { linked, hideIf } from '../../../src/prefabs/factories/options';
 test('linked builds a linked option with a value ref', (t) => {
   const result = linked({
     label: 'my linked label',
-    as: 'BUTTONGROUP',
     configuration: {
+      as: 'BUTTONGROUP',
       condition: hideIf('model', 'EQ', ''),
     },
     value: { ref: { componentId: '#1', optionId: '#2' } },
@@ -18,8 +18,8 @@ test('linked builds a linked option with a value ref', (t) => {
         optionId: '#2',
       },
     },
-    as: 'BUTTONGROUP',
     configuration: {
+      as: 'BUTTONGROUP',
       condition: {
         type: 'HIDE',
         option: 'model',
