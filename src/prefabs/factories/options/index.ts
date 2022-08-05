@@ -18,6 +18,7 @@ export { icon } from './icon';
 export { filter } from './filter';
 export { linked } from './linked';
 export { model } from './model';
+export { modelAndRelation } from './modelAndRelation';
 export { property } from './property';
 export { reconfigure } from './reconfigure';
 
