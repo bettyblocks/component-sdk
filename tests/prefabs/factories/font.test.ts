@@ -1,5 +1,5 @@
 import test from 'tape';
-import { font } from '../../../src/prefabs/factories/options/index';
+import { font, modelAndRelation } from '../../../src/prefabs/factories/options';
 
 test('font builds variable option with a value', (t) => {
   const result = font('Font', { value: ['Body1'] })('font');
@@ -41,6 +41,20 @@ test('font builds variable option with a configuration', (t) => {
         value: true,
       },
     },
+  };
+
+  t.deepEqual(result, expected);
+  t.end();
+});
+
+test('modelAndRelation builds variable option', (t) => {
+  const result = modelAndRelation('Model', { value: '' })('model');
+
+  const expected = {
+    type: 'MODEL_AND_RELATION',
+    label: 'Model',
+    key: 'model',
+    value: '',
   };
 
   t.deepEqual(result, expected);
