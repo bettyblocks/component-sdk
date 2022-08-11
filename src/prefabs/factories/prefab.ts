@@ -1,10 +1,11 @@
 import { ActionVariable } from '../types/ActionVariable';
-import { PrefabReference } from '../types/component';
+import { PrefabComponent, PrefabReference } from '../types/component';
 import { Model } from '../types/model';
 import { Prefab } from '../types/prefabs';
 import { Property, PropertyKind } from '../types/property';
 import { BettyPrefabs } from '../types/constants/BettyPrefabs';
 import { PreparedAction } from '../types/helpers';
+import { PrefabComponentOption } from '../types';
 
 type Attributes = Omit<Prefab, 'name' | 'structure' | 'beforeCreate'>;
 
@@ -25,7 +26,7 @@ export type BeforeCreateArgs = {
       data: Record<string, any> | null;
       error: Record<string, any> | null;
     };
-    cloneStructure: (prefabs: Prefab[], prefabName: string) => PrefabReference;
+    cloneStructure: (prefabName: string) => PrefabReference;
     prepareAction: (
       componentId: string,
       idProperty: Property,
@@ -42,6 +43,11 @@ export type BeforeCreateArgs = {
     BettyPrefabs: typeof BettyPrefabs;
     PropertyKind: PropertyKind;
     createUuid: () => string;
+    setOption: (
+      structure: PrefabComponent,
+      key: string,
+      transform: (option: PrefabComponentOption) => PrefabComponentOption,
+    ) => void;
   };
 };
 
