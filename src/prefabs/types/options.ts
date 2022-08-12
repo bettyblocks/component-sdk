@@ -1,5 +1,19 @@
 export type ValueConfig = Record<string, unknown>;
 
+export enum ActionVariableKind {
+  ARRAY = 'ARRAY',
+  BOOLEAN = 'BOOLEAN',
+  COLLECTION = 'COLLECTION',
+  DATE = 'DATE',
+  DATE_TIME = 'DATE_TIME',
+  DECIMAL = 'DECIMAL',
+  INTEGER = 'INTEGER',
+  JSON = 'JSON',
+  OBJECT = 'OBJECT',
+  RECORD = 'RECORD',
+  STRING = 'STRING',
+}
+
 export type OptionCategory = {
   label: string;
   expanded?: boolean;
