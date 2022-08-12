@@ -5,7 +5,7 @@ import { Prefab } from '../types/prefabs';
 import { Property, PropertyKind } from '../types/property';
 import { BettyPrefabs } from '../types/constants/BettyPrefabs';
 import { PreparedAction } from '../types/helpers';
-import { PrefabComponentOption } from '../types';
+import { PrefabComponentOption, ActionVariableKind } from '../types';
 import { AuthenticationProfile } from '../types/authenticationProfile';
 
 type Attributes = Omit<Prefab, 'name' | 'structure' | 'beforeCreate'>;
@@ -28,6 +28,12 @@ export type BeforeCreateArgs = {
       error: Record<string, any> | null;
     };
     cloneStructure: (prefabName: string) => PrefabReference;
+    addActionVariable: (
+      actionId: string,
+      name: string,
+      kind: ActionVariableKind,
+      options: object,
+    ) => Promise<ActionVariable>;
     prepareAction: (
       componentId: string,
       idProperty: Property,
@@ -36,6 +42,13 @@ export type BeforeCreateArgs = {
       authenticationProfile?: AuthenticationProfile,
     ) => Promise<PreparedAction>;
     makeBettyInput: (
+      prefabName: string,
+      model: Model,
+      property: Property,
+      variable: ActionVariable,
+      relatedIdProperties?: Record<string, string>,
+    ) => PrefabReference;
+    makeBettyUpdateInput: (
       prefabName: string,
       model: Model,
       property: Property,
