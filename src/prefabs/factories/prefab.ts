@@ -6,6 +6,7 @@ import { Property, PropertyKind } from '../types/property';
 import { BettyPrefabs } from '../types/constants/BettyPrefabs';
 import { PreparedAction } from '../types/helpers';
 import { PrefabComponentOption } from '../types';
+import { AuthenticationProfile } from '../types/authenticationProfile';
 
 type Attributes = Omit<Prefab, 'name' | 'structure' | 'beforeCreate'>;
 
@@ -31,7 +32,8 @@ export type BeforeCreateArgs = {
       componentId: string,
       idProperty: Property,
       properties: Property[],
-      actionTemplate: 'update',
+      actionTemplate: 'create' | 'update' | 'delete' | 'login',
+      authenticationProfile?: AuthenticationProfile,
     ) => Promise<PreparedAction>;
     makeBettyInput: (
       prefabName: string,
