@@ -38,7 +38,7 @@ export type BeforeCreateArgs = {
       componentId: string,
       idProperty: Property,
       properties: Property[],
-      actionTemplate: 'create' | 'update' | 'delete' | 'login',
+      actionTemplate: 'create' | 'update' | 'delete' | 'login' | 'empty',
       authenticationProfile?: AuthenticationProfile,
     ) => Promise<PreparedAction>;
     makeBettyInput: (
