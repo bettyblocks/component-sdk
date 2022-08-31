@@ -8,4 +8,5 @@ export interface PreparedAction {
   variables: Record<string, [Property, ActionVariable]>;
   relatedIdProperties: Record<string, string>;
   resultVariable: ActionVariable;
+  recordInputVariable: ActionVariable;
 }
