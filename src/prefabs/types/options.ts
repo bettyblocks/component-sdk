@@ -62,6 +62,18 @@ export interface PrefabWrapperLinkedOption
   };
 }
 
+// export interface PrefabWrapperLinkedPartialOption extends Omit<PrefabWrapperLinkedOption, 'optionId'>
+
+export interface PrefabWrapperLinkedPartialOption
+  extends Omit<PrefabComponentOptionBase, 'configuration'> {
+  configuration?: PrefabWrapperLinkedOptionConfiguration;
+  value?: {
+    ref: {
+      componentId: string;
+    };
+  };
+}
+
 export type PrefabComponentStyle = {
   name?: string;
   overwrite?: {
@@ -94,6 +106,9 @@ export type PrefabComponentStyle = {
 };
 export type OptionProducer = (key: string) => PrefabComponentOption;
 export type LinkedOptionProducer = (key: string) => PrefabWrapperLinkedOption;
+export type LinkedPartialOptionProducer = (
+  key: string,
+) => PrefabWrapperLinkedPartialOption;
 
 export type StyleProducer = (key: string) => PrefabComponentStyle;
 

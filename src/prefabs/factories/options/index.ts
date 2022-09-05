@@ -16,7 +16,7 @@ export { number } from './number';
 export { text } from './text';
 export { icon } from './icon';
 export { filter } from './filter';
-export { linked } from './linked';
+export { linked, linkedPartial } from './linked';
 export { model } from './model';
 export { modelAndRelation } from './modelAndRelation';
 export { property } from './property';
