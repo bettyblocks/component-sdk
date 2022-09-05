@@ -34,3 +34,43 @@ test('linked builds a linked option with a value ref', (t) => {
   t.deepEqual(result, expected);
   t.end();
 });
+
+test('linked builds an option where value contains a number', (t) => {
+  const result = linked({
+    label: 'Form title example',
+    configuration: {
+      condition: {
+        type: 'SHOW',
+        option: 'optionWithButtonGroup',
+        comparator: 'EQ',
+        value: 1,
+      },
+    },
+    value: {
+      ref: { componentId: '#tabs', optionId: '#tabsOptionWithButtonGroup' },
+    },
+  })('linkedTextComponentExample');
+
+  const expected = {
+    value: {
+      ref: {
+        componentId: '#tabs',
+        optionId: '#tabsOptionWithButtonGroup',
+      },
+    },
+    configuration: {
+      condition: {
+        type: 'SHOW',
+        option: 'optionWithButtonGroup',
+        comparator: 'EQ',
+        value: 1,
+      },
+    },
+    key: 'linkedTextComponentExample',
+    type: 'LINKED_OPTION',
+    label: 'Form title example',
+  };
+
+  t.deepEqual(result, expected);
+  t.end();
+});

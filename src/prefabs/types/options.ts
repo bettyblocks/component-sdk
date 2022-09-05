@@ -48,7 +48,7 @@ export type PrefabWrapperLinkedOptionConfiguration = {
     type: 'SHOW' | 'HIDE';
     option: string;
     comparator: 'EQ';
-    value: string | boolean;
+    value: string | boolean | number;
   };
 };
 export interface PrefabWrapperLinkedOption
