@@ -62,8 +62,7 @@ export interface PrefabWrapperLinkedOption
   };
 }
 
-// export interface PrefabWrapperLinkedPartialOption extends Omit<PrefabWrapperLinkedOption, 'optionId'>
-
+// TODO: create an Omit of type PrefabWrapperLinkedOption to prevent duplicate code.
 export interface PrefabWrapperLinkedPartialOption
   extends Omit<PrefabComponentOptionBase, 'configuration'> {
   configuration?: PrefabWrapperLinkedOptionConfiguration;
