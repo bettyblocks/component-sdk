@@ -44,6 +44,8 @@ export interface ValueRef extends PrefabComponentOptionBase {
 export type PrefabComponentOption = ValueDefault | ValueRef;
 export type PrefabWrapperLinkedOptionConfiguration = {
   as?: string;
+  dataType?: string;
+  allowedInput?: any;
   condition?: {
     type: 'SHOW' | 'HIDE';
     option: string;
