@@ -18,6 +18,12 @@ export type OptionCategory = {
   label: string;
   expanded?: boolean;
   members: string[];
+  condition?: {
+    type: string;
+    option: string;
+    comparator: string;
+    value: string | boolean | number;
+  };
 };
 
 export interface PrefabComponentOptionBase {
@@ -45,7 +51,7 @@ export type PrefabComponentOption = ValueDefault | ValueRef;
 export type PrefabWrapperLinkedOptionConfiguration = {
   as?: string;
   dataType?: string;
-  allowedInput?: any;
+  allowedInput?: { name: string; value: string | boolean | number }[];
   condition?: {
     type: 'SHOW' | 'HIDE';
     option: string;
