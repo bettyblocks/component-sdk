@@ -65,7 +65,7 @@ export interface PrefabWrapperLinkedOption
   value?: {
     ref: {
       componentId: string;
-      optionId: string;
+      optionId?: string;
     };
   };
 }
