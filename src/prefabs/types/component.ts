@@ -4,6 +4,7 @@ import {
   PrefabComponentOption,
   PrefabWrapperLinkedOption,
   PrefabComponentStyle,
+  PrefabWrapperLinkedPartialOption,
 } from './options';
 import { Hook } from './hook';
 
@@ -13,12 +14,13 @@ export interface PrefabPartial {
   type: 'PARTIAL';
   partialId: string;
 }
+
 export interface PrefabWrapper {
   type: 'WRAPPER';
   label?: string;
   descendants: PrefabReference[];
   optionCategories?: OptionCategory[];
-  options: PrefabWrapperLinkedOption[];
+  options: (PrefabWrapperLinkedOption | PrefabWrapperLinkedPartialOption)[];
 }
 
 export interface PrefabComponent {
