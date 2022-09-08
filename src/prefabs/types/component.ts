@@ -14,6 +14,7 @@ export interface PrefabPartial {
   type: 'PARTIAL';
   partialId: string;
 }
+
 export interface PrefabWrapper {
   type: 'WRAPPER';
   label?: string;

@@ -37,6 +37,7 @@ export interface PrefabLinkedOptionBase {
   label: string;
   key: string;
 }
+
 export interface ValueDefault extends PrefabComponentOptionBase {
   value: boolean | string[] | string | number | ValueConfig;
   ref?: {
@@ -63,6 +64,7 @@ export type PrefabWrapperLinkedOptionConfiguration = {
     value: string | boolean | number;
   };
 };
+
 export interface PrefabWrapperLinkedOption extends PrefabLinkedOptionBase {
   configuration?: PrefabWrapperLinkedOptionConfiguration;
   type: 'LINKED_OPTION';
@@ -74,7 +76,6 @@ export interface PrefabWrapperLinkedOption extends PrefabLinkedOptionBase {
   };
 }
 
-// TODO: create an Omit of type PrefabWrapperLinkedOption to prevent duplicate code.
 export interface PrefabWrapperLinkedPartialOption
   extends PrefabLinkedOptionBase {
   configuration?: PrefabWrapperLinkedOptionConfiguration;
@@ -116,6 +117,7 @@ export type PrefabComponentStyle = {
     textTransform?: string;
   };
 };
+
 export type OptionProducer = (key: string) => PrefabComponentOption;
 export type LinkedOptionProducer = (key: string) => PrefabWrapperLinkedOption;
 export type LinkedPartialOptionProducer = (
