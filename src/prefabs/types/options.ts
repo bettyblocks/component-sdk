@@ -33,6 +33,10 @@ export interface PrefabComponentOptionBase {
   configuration?: unknown;
 }
 
+export interface PrefabLinkedOptionBase {
+  label: string;
+  key: string;
+}
 export interface ValueDefault extends PrefabComponentOptionBase {
   value: boolean | string[] | string | number | ValueConfig;
   ref?: {
@@ -59,21 +63,22 @@ export type PrefabWrapperLinkedOptionConfiguration = {
     value: string | boolean | number;
   };
 };
-export interface PrefabWrapperLinkedOption
-  extends Omit<PrefabComponentOptionBase, 'configuration'> {
+export interface PrefabWrapperLinkedOption extends PrefabLinkedOptionBase {
   configuration?: PrefabWrapperLinkedOptionConfiguration;
+  type: 'LINKED_OPTION';
   value?: {
     ref: {
       componentId: string;
-      optionId?: string;
+      optionId: string;
     };
   };
 }
 
 // TODO: create an Omit of type PrefabWrapperLinkedOption to prevent duplicate code.
 export interface PrefabWrapperLinkedPartialOption
-  extends Omit<PrefabComponentOptionBase, 'configuration'> {
+  extends PrefabLinkedOptionBase {
   configuration?: PrefabWrapperLinkedOptionConfiguration;
+  type: 'LINKED_PARTIAL';
   value?: {
     ref: {
       componentId: string;

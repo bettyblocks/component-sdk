@@ -9,8 +9,9 @@ export type WrapperAttrs = {
   label?: string;
   optionCategories?: OptionCategory[];
   options?: Record<string, LinkedOptionProducer | LinkedPartialOptionProducer>;
+  // partialOptions?: Record<string, LinkedPartialOptionProducer>;
 };
-
+// TODO: solve the union issue where the option type do not match.
 /**
  * Create a wrapper prefab
  *
@@ -24,6 +25,9 @@ export const wrapper = (
   const options = Object.entries(attrs.options || {}).map(([key, linked]) =>
     linked(key),
   );
+  // const linkedPartialOptions = Object.entries(attrs.options || {}).map(
+  //   ([key, linked]) => linked(key),
+  // );
   const optionCategories =
     attrs.optionCategories && attrs.optionCategories.length !== 0
       ? { optionCategories: attrs.optionCategories }
