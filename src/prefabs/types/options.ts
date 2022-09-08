@@ -18,6 +18,12 @@ export type OptionCategory = {
   label: string;
   expanded?: boolean;
   members: string[];
+  condition?: {
+    type: string;
+    option: string;
+    comparator: string;
+    value: string | boolean | number;
+  };
 };
 
 export interface PrefabComponentOptionBase {
@@ -25,6 +31,11 @@ export interface PrefabComponentOptionBase {
   key: string;
   type: string;
   configuration?: unknown;
+}
+
+export interface PrefabLinkedOptionBase {
+  label: string;
+  key: string;
 }
 
 export interface ValueDefault extends PrefabComponentOptionBase {
@@ -44,6 +55,8 @@ export interface ValueRef extends PrefabComponentOptionBase {
 export type PrefabComponentOption = ValueDefault | ValueRef;
 export type PrefabWrapperLinkedOptionConfiguration = {
   as?: string;
+  dataType?: string;
+  allowedInput?: { name: string; value: string | boolean | number }[];
   condition?: {
     type: 'SHOW' | 'HIDE';
     option: string;
@@ -51,13 +64,25 @@ export type PrefabWrapperLinkedOptionConfiguration = {
     value: string | boolean | number;
   };
 };
-export interface PrefabWrapperLinkedOption
-  extends Omit<PrefabComponentOptionBase, 'configuration'> {
+
+export interface PrefabWrapperLinkedOption extends PrefabLinkedOptionBase {
   configuration?: PrefabWrapperLinkedOptionConfiguration;
+  type: 'LINKED_OPTION';
   value?: {
     ref: {
       componentId: string;
       optionId: string;
+    };
+  };
+}
+
+export interface PrefabWrapperLinkedPartialOption
+  extends PrefabLinkedOptionBase {
+  configuration?: PrefabWrapperLinkedOptionConfiguration;
+  type: 'LINKED_PARTIAL';
+  value?: {
+    ref: {
+      componentId: string;
     };
   };
 }
@@ -92,8 +117,12 @@ export type PrefabComponentStyle = {
     textTransform?: string;
   };
 };
+
 export type OptionProducer = (key: string) => PrefabComponentOption;
 export type LinkedOptionProducer = (key: string) => PrefabWrapperLinkedOption;
+export type LinkedPartialOptionProducer = (
+  key: string,
+) => PrefabWrapperLinkedPartialOption;
 
 export type StyleProducer = (key: string) => PrefabComponentStyle;
 

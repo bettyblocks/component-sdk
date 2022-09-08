@@ -1,5 +1,9 @@
 import test from 'tape';
-import { linked, hideIf } from '../../../src/prefabs/factories/options';
+import {
+  linked,
+  linkedPartial,
+  hideIf,
+} from '../../../src/prefabs/factories/options';
 
 test('linked builds a linked option with a value ref', (t) => {
   const result = linked({
@@ -71,6 +75,27 @@ test('linked builds an option where value contains a number', (t) => {
     label: 'Form title example',
   };
 
+  t.deepEqual(result, expected);
+  t.end();
+});
+
+test.only('linkedPartial builds option', (t) => {
+  const result = linkedPartial({
+    label: 'my linked partial label',
+    value: {
+      ref: { componentId: '#partialId' },
+    },
+  })('linkedPartial');
+  const expected = {
+    value: {
+      ref: {
+        componentId: '#partialId',
+      },
+    },
+    key: 'linkedPartial',
+    type: 'LINKED_PARTIAL',
+    label: 'my linked partial label',
+  };
   t.deepEqual(result, expected);
   t.end();
 });

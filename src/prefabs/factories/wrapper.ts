@@ -1,10 +1,14 @@
 import type { PrefabReference } from '../types/component';
-import type { LinkedOptionProducer, OptionCategory } from '../types/options';
+import type {
+  LinkedOptionProducer,
+  LinkedPartialOptionProducer,
+  OptionCategory,
+} from '../types/options';
 
 export type WrapperAttrs = {
   label?: string;
   optionCategories?: OptionCategory[];
-  options?: Record<string, LinkedOptionProducer>;
+  options?: Record<string, LinkedOptionProducer | LinkedPartialOptionProducer>;
 };
 
 /**
