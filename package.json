@@ -5,8 +5,10 @@
   "types": "build/index.d.ts",
   "author": "Benjamin Kagia <benjamin.kagia@bettyblocks.com>",
   "license": "Apache-2.0",
-  "repository": "git@github.com:bettyblocks/component-sdk.git",
-  
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:bettyblocks/component-sdk.git"
+  },
   "engines": {
     "node": "^16.11.1"
   },
