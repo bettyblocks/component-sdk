@@ -47,6 +47,7 @@ export type BeforeCreateArgs = {
       property: Property,
       variable: ActionVariable,
       relatedIdProperties?: Record<string, string>,
+      relatedModelIds?: Record<string, string>,
     ) => PrefabReference;
     makeBettyUpdateInput: (
       prefabName: string,
@@ -54,6 +55,7 @@ export type BeforeCreateArgs = {
       property: Property,
       variable: ActionVariable,
       relatedIdProperties?: Record<string, string>,
+      relatedModelIds?: Record<string, string>,
     ) => PrefabReference;
     BettyPrefabs: typeof BettyPrefabs;
     PropertyKind: typeof PropertyKind
