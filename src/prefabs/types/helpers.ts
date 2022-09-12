@@ -9,4 +9,5 @@ export interface PreparedAction {
   relatedIdProperties: Record<string, string>;
   resultVariable: ActionVariable;
   recordInputVariable: ActionVariable;
+  relatedModelIds: Record<string, string>;
 }
