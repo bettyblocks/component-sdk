@@ -21,5 +21,6 @@ export const BettyPrefabs = {
   TIME: 'TimePicker Beta',
   UPDATE_FORM: 'Update Form Beta',
   URL: 'Url Beta',
-  FILE: 'File Upload Beta'
+  FILE: 'File Upload Beta',
+  IMAGE: 'Image Upload Beta'
 };
