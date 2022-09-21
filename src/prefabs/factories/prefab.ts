@@ -40,6 +40,7 @@ export type BeforeCreateArgs = {
       properties: Property[],
       actionTemplate: 'create' | 'update' | 'delete' | 'login' | 'empty',
       authenticationProfile?: AuthenticationProfile,
+      permissions?: 'public' | 'private' | 'inherit',
     ) => Promise<PreparedAction>;
     makeBettyInput: (
       prefabName: string,
