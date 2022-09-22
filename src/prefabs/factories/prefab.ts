@@ -42,6 +42,7 @@ export type BeforeCreateArgs = {
       authenticationProfile?: AuthenticationProfile,
       actionName?: string,
       permissions?: 'public' | 'private' | 'inherit',
+      pageAuthenticationProfileId?: string,
     ) => Promise<PreparedAction>;
     makeBettyInput: (
       prefabName: string,
