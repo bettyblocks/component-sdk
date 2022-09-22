@@ -44,9 +44,7 @@ export type BeforeCreateArgs = {
       permissions?: 'public' | 'private' | 'inherit',
       getPageAuthenticationProfileId?: string,
     ) => Promise<PreparedAction>;
-    getPageAuthenticationProfileId: (
-      pageAuthenticationProfileId: string,
-    ) => string;
+    getPageAuthenticationProfileId: () => string;
     makeBettyInput: (
       prefabName: string,
       model: Model,
@@ -64,7 +62,7 @@ export type BeforeCreateArgs = {
       relatedModelIds?: Record<string, string>,
     ) => PrefabReference;
     BettyPrefabs: typeof BettyPrefabs;
-    PropertyKind: typeof PropertyKind
+    PropertyKind: typeof PropertyKind;
     createUuid: () => string;
     setOption: (
       structure: PrefabComponent,
