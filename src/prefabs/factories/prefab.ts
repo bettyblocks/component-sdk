@@ -62,7 +62,7 @@ export type BeforeCreateArgs = {
       relatedModelIds?: Record<string, string>,
     ) => PrefabReference;
     BettyPrefabs: typeof BettyPrefabs;
-    PropertyKind: typeof PropertyKind
+    PropertyKind: typeof PropertyKind;
     createUuid: () => string;
     setOption: (
       structure: PrefabComponent,
