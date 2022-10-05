@@ -10,7 +10,7 @@ export interface StaticValue {
 
 export type  RefOrValue = ThemeColorReference | StaticValue;
 
-export interface StyleDefinitionCssObject {
+export interface StyleDefinitionContentObject {
   backgroundColor?: RefOrValue;
   borderColor?: RefOrValue;
   borderRadius?: string[];
@@ -30,13 +30,13 @@ export interface StyleDefinitionCssObject {
 }
 export interface StyleDefinitionState {
   name: string;
-  cssObject: StyleDefinitionCssObject;
+  content: StyleDefinitionContentObject;
 }
 
 export interface StyleDefinition {
   type: string;
   name: string;
-  basis: StyleDefinitionCssObject;
+  basis: StyleDefinitionContentObject;
   states: StyleDefinitionState[];
 }
 
@@ -65,7 +65,7 @@ export type StyleStateKeys =
   | AllowedStateKeys.READONLY;
 
 export type StyleDefinitionContentBase = {
-  [key in StyleStateKeys | 'basis']: StyleDefinitionCssObject;
+  [key in StyleStateKeys | 'basis']: StyleDefinitionContentObject;
 };
 
 export type StyleDefinitionContent = Partial<StyleDefinitionContentBase> &

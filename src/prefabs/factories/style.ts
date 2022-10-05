@@ -1,6 +1,6 @@
 import {
   StyleDefinition,
-  StyleDefinitionCssObject,
+  StyleDefinitionContentObject,
   StyleDefinitionContentBase,
   StaticValue,
   ThemeColorReference,
@@ -9,7 +9,7 @@ import {
 
 interface RequiredStyleAttrs {
   name: string;
-  basis: StyleDefinitionCssObject;
+  basis: StyleDefinitionContentObject;
   states: Partial<Omit<StyleDefinitionContentBase, 'basis'>>;
 }
 
@@ -20,9 +20,9 @@ export const style = (
   name,
   type,
   basis,
-  states: Object.entries(states).map(([stateKey, cssObject]) => ({
+  states: Object.entries(states).map(([stateKey, content]) => ({
     name: stateKey,
-    cssObject,
+    content,
   })),
 });
 
@@ -37,7 +37,7 @@ export const styleReference = (
   const overwrite = attrs.overwrite
     ? {
         overwrite: Object.entries(attrs.overwrite).map(
-          ([stateName, cssObject]) => ({ name: stateName, cssObject }),
+          ([stateName, content]) => ({ name: stateName, content }),
         ),
       }
     : {};
