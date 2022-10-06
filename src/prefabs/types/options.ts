@@ -1,4 +1,4 @@
-import { StyleDefinitionState } from "./styleType";
+import { StyleDefinitionState } from "./style";
 
 export type ValueConfig = Record<string, unknown>;
 
