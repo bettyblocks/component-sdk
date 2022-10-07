@@ -1,3 +1,5 @@
+import { StyleDefinitionState } from "./style";
+
 export type ValueConfig = Record<string, unknown>;
 
 export enum ActionVariableKind {
@@ -115,7 +117,7 @@ export type PrefabComponentStyle = {
     padding?: string | string[];
     textDecoration?: string;
     textTransform?: string;
-  };
+  } | StyleDefinitionState[];
 };
 
 export type OptionProducer = (key: string) => PrefabComponentOption;
