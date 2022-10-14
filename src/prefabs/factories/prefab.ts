@@ -4,7 +4,7 @@ import { Model } from '../types/model';
 import { Prefab } from '../types/prefabs';
 import { Property, PropertyKind } from '../types/property';
 import { BettyPrefabs } from '../types/constants/BettyPrefabs';
-import { PreparedAction } from '../types/helpers';
+import { PreparedAction, PreparedInput } from '../types/helpers';
 import { PrefabComponentOption, ActionVariableKind } from '../types';
 import { AuthenticationProfile } from '../types/authenticationProfile';
 
@@ -27,6 +27,14 @@ export type BeforeCreateArgs = {
       data: Record<string, any> | null;
       error: Record<string, any> | null;
     };
+    usePropertyQuery: (propertyId: string) => {
+      loading: boolean;
+      data: Record<string, any> | null;
+      error: Record<string, any> | null;
+    };
+    useModelIdSelector: () => string | null;
+    useActionIdSelector: () => string | null;
+    usePrefabSelector: () => { name: string; id: string } | null;
     cloneStructure: (prefabName: string) => PrefabReference;
     addActionVariable: (
       actionId: string,
@@ -44,6 +52,14 @@ export type BeforeCreateArgs = {
       permissions?: 'public' | 'private' | 'inherit',
       getPageAuthenticationProfileId?: string,
     ) => Promise<PreparedAction>;
+    prepareInput: (
+      actionId: string | null,
+      variableName: string | undefined,
+      kind: PropertyKind,
+      propertyKind: string,
+      permissions?: 'public' | 'private' | 'inherit',
+      getPageAuthenticationProfileId?: string,
+    ) => Promise<PreparedInput>;
     getPageAuthenticationProfileId: () => string;
     makeBettyInput: (
       prefabName: string,

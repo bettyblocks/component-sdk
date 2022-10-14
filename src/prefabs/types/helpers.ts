@@ -11,3 +11,10 @@ export interface PreparedAction {
   recordInputVariable: ActionVariable;
   relatedModelIds: Record<string, string>;
 }
+
+export interface PreparedInput {
+  variable: {
+    variableId: string;
+  };
+  isRelational: boolean;
+}
