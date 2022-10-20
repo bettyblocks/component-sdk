@@ -85,7 +85,7 @@ export type BeforeCreateArgs = {
       key: string,
       transform: (option: PrefabComponentOption) => PrefabComponentOption,
     ) => void;
-    createBlacklist: PropertyKind[];
+    createBlacklist: (whiteList: PropertyKind[]) => PropertyKind[];
   };
 };
 
