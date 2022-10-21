@@ -22,5 +22,8 @@ export const BettyPrefabs = {
   UPDATE_FORM: 'Update Form Beta',
   URL: 'Url Beta',
   FILE: 'File Upload Beta',
-  IMAGE: 'Image Upload Beta'
+  IMAGE: 'Image Upload Beta',
+  LOGIN_FORM: 'Login Form',
+  CREATE_FORM : 'Create Form',
+  FORM: 'Form',
 };
