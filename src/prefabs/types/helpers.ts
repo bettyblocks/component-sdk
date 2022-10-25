@@ -17,4 +17,5 @@ export interface PreparedInput {
     variableId: string;
   };
   isRelational: boolean;
+  isMultiRelational: boolean;
 }
