@@ -32,6 +32,11 @@ export type BeforeCreateArgs = {
       data: Record<string, any> | null;
       error: Record<string, any> | null;
     };
+    useModelRelationQuery: (propertyModelId: string) => {
+      loading: boolean;
+      data: Record<string, any> | null;
+      error: Record<string, any> | null;
+    };
     useModelIdSelector: () => string | null;
     useActionIdSelector: () => string | null;
     usePrefabSelector: () => { name: string; id: string } | null;
