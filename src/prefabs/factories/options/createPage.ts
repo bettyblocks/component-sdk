@@ -19,7 +19,7 @@ const defaultAttributes = {
   value: {},
 };
 
-export const pageCreation =
+export const createPage =
   (label: string, attrs: Attributes = {}): OptionProducer =>
   (key) => ({
     ...defaultAttributes,
