@@ -5,6 +5,7 @@ import {
   showIfTrue,
   toggle,
   reconfigure,
+  createPage,
 } from '../../../src/prefabs/factories/options';
 
 test('component builds empty component', (t) => {
@@ -147,3 +148,31 @@ test('component is a data table with a "reconfigure" option', (t) => {
   t.deepEqual(result, expected);
   t.end();
 });
+
+test('component is a box with a "create-page" option', (t) => {
+  const result = component(
+    'Box',
+    {
+      options: {
+        createPage: createPage('Create page', { value: '' }),
+      },
+    },
+    [],
+  );
+  const expected = {
+    name: 'Box',
+    options: [
+      {
+        value: '',
+        label: 'Create page',
+        key: 'createPage',
+        type: 'CREATE_PAGE',
+      },
+    ],
+    descendants: [],
+    type: 'COMPONENT',
+  };
+
+  t.deepEqual(result, expected);
+  t.end();
+})
