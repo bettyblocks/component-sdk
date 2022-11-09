@@ -107,5 +107,5 @@ export const prefab = (
   ...attr,
   beforeCreate: beforeCreate?.toString(),
   structure,
-  ...reconfigure,
+  reconfigure,
 });
