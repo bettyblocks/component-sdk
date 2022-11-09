@@ -39,4 +39,7 @@ export interface PrefabComponent {
     id: string;
   };
   style?: PrefabComponentStyle;
+  reconfigure?: {
+    children: PrefabComponent[];
+  };
 }
