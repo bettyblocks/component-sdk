@@ -1,6 +1,6 @@
 import { Icon } from './icon';
 import { PrefabAction } from '../actions';
-import { PrefabReference } from '../component';
+import { PrefabReference, PrefabComponent } from '../component';
 import { PrefabInteraction, PrefabVariable } from '../interactions';
 
 export interface Prefab {
@@ -15,4 +15,7 @@ export interface Prefab {
   variables?: PrefabVariable[];
   type?: string;
   description?: string;
+  reconfigure?: {
+    children: PrefabComponent[];
+  };
 }
