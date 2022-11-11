@@ -11,6 +11,7 @@ import { AuthenticationProfile } from '../types/authenticationProfile';
 type Attributes = Omit<Prefab, 'name' | 'structure' | 'beforeCreate'>;
 
 export type BeforeCreateArgs = {
+  modelId: string;
   close: () => void;
   save: (prefab: Prefab) => void;
   prefab: Prefab;
