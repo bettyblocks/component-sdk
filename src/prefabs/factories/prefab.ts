@@ -66,6 +66,7 @@ export type BeforeCreateArgs = {
       getPageAuthenticationProfileId?: string,
     ) => Promise<PreparedInput>;
     getPageAuthenticationProfileId: () => string;
+    getPageName: () => string;
     makeBettyInput: (
       prefabName: string,
       model: Model,
