@@ -21,7 +21,7 @@ export { model } from './model';
 export { modelAndRelation } from './modelAndRelation';
 export { property } from './property';
 export { reconfigure } from './reconfigure';
-export { reconfigurev2 } from './reconfigurev2';
+export { addChild } from './addChild';
 export { createPage } from './createPage';
 
 export * from './configurations';

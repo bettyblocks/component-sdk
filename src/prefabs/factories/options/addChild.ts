@@ -19,12 +19,12 @@ const defaultAttributes = {
   value: {},
 };
 
-export const reconfigurev2 =
+export const addChild =
   (label: string, attrs: Attributes = {}): OptionProducer =>
   (key) => ({
     ...defaultAttributes,
     ...attrs,
     key,
-    type: 'RECONFIGUREV2',
+    type: 'ADD_CHILD',
     label,
   });
