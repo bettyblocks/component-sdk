@@ -5,7 +5,7 @@ import {
   showIfTrue,
   toggle,
   reconfigure,
-  reconfigurev2,
+  addChild,
   createPage,
 } from '../../../src/prefabs/factories/options';
 
@@ -150,12 +150,12 @@ test('component is a data table with a "reconfigure" option', (t) => {
   t.end();
 });
 
-test('component is a data table with a "reconfigurev2" option', (t) => {
+test('component is a data table with a "addChild" option', (t) => {
   const result = component(
     'Data table',
     {
       options: {
-        reconfigurev2: reconfigurev2('ReconfigureV2', { value: '' }),
+        addChild: addChild('Add child', { value: '' }),
       },
     },
     [],
@@ -165,9 +165,9 @@ test('component is a data table with a "reconfigurev2" option', (t) => {
     options: [
       {
         value: '',
-        label: 'ReconfigureV2',
-        key: 'reconfigurev2',
-        type: 'RECONFIGUREV2',
+        label: 'Add child',
+        key: 'addChild',
+        type: 'ADD_CHILD',
       },
     ],
     descendants: [],
@@ -204,4 +204,4 @@ test('component is a box with a "create-page" option', (t) => {
 
   t.deepEqual(result, expected);
   t.end();
-})
+});
