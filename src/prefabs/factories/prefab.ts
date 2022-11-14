@@ -56,6 +56,7 @@ export type BeforeCreateArgs = {
       actionName?: string,
       permissions?: 'public' | 'private' | 'inherit',
       getPageAuthenticationProfileId?: string,
+      pageName?: string,
     ) => Promise<PreparedAction>;
     prepareInput: (
       actionId: string | null,
