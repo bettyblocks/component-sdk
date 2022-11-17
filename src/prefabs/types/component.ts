@@ -41,5 +41,6 @@ export interface PrefabComponent {
   style?: PrefabComponentStyle;
   reconfigure?: {
     children: PrefabComponent[];
+    wizardType: string;
   };
 }
