@@ -53,9 +53,14 @@ export const component = (
   name: string,
   attrs: UnresolvedAttributes,
   descendants: PrefabReference[],
+  reconfigure?: {
+    children: PrefabComponent[];
+    wizardType: string;
+  },
 ): PrefabComponent => ({
   name,
   ...resolveAttributes(attrs),
   descendants,
   type: 'COMPONENT',
+  reconfigure,
 });
