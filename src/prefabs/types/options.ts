@@ -1,5 +1,4 @@
 import { StyleDefinitionState } from './style';
-import { Properties } from './property';
 
 export type ValueConfig = Record<string, unknown>;
 
@@ -40,12 +39,6 @@ export interface PrefabLinkedOptionBase {
   label: string;
   key: string;
 }
-export interface ValueProperties extends PrefabComponentOptionBase {
-  value: boolean | string[] | string | number | ValueConfig | Properties;
-  ref?: {
-    id?: string;
-  };
-}
 
 export interface ValueDefault extends PrefabComponentOptionBase {
   value: boolean | string[] | string | number | ValueConfig;
@@ -61,7 +54,7 @@ export interface ValueRef extends PrefabComponentOptionBase {
   };
 }
 
-export type PrefabComponentOption = ValueDefault | ValueRef | ValueProperties;
+export type PrefabComponentOption = ValueDefault | ValueRef;
 export type PrefabWrapperLinkedOptionConfiguration = {
   as?: string;
   dataType?: string;
