@@ -46,14 +46,22 @@ export const PropertyKind = {
   TIME: 'TIME',
   URL: 'URL',
   ZIPCODE: 'ZIPCODE',
-}
+};
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
-export type PropertyKind = keyof typeof PropertyKind
+export type PropertyKind = keyof typeof PropertyKind;
 
 export interface Property {
   id: string;
   name: string;
   label: string;
   kind: PropertyKind;
+}
+
+export interface Properties {
+  id: string;
+  name: string;
+  label: string;
+  kind: PropertyKind;
+  format: string;
 }
