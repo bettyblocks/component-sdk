@@ -40,9 +40,15 @@ export interface PrefabLinkedOptionBase {
   label: string;
   key: string;
 }
+export interface ValueProperties extends PrefabComponentOptionBase {
+  value: boolean | string[] | string | number | ValueConfig | Properties;
+  ref?: {
+    id?: string;
+  };
+}
 
 export interface ValueDefault extends PrefabComponentOptionBase {
-  value: boolean | string[] | string | number | ValueConfig | Properties;
+  value: boolean | string[] | string | number | ValueConfig;
   ref?: {
     id?: string;
   };
@@ -55,7 +61,7 @@ export interface ValueRef extends PrefabComponentOptionBase {
   };
 }
 
-export type PrefabComponentOption = ValueDefault | ValueRef;
+export type PrefabComponentOption = ValueDefault | ValueRef | ValueProperties;
 export type PrefabWrapperLinkedOptionConfiguration = {
   as?: string;
   dataType?: string;
