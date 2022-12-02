@@ -1,4 +1,4 @@
-import type { PrefabReference } from '../types/component';
+import type { PrefabReference, PrefabComponent } from '../types/component';
 import type {
   LinkedOptionProducer,
   LinkedPartialOptionProducer,
@@ -19,6 +19,10 @@ export type WrapperAttrs = {
 export const wrapper = (
   attrs: WrapperAttrs,
   descendants: PrefabReference[],
+  reconfigure?: {
+    children: PrefabComponent[];
+    wizardType: string;
+  },
 ): PrefabReference => {
   const labelField = attrs.label ? { label: attrs.label } : {};
   const options = Object.entries(attrs.options || {}).map(([key, linked]) =>
@@ -35,5 +39,6 @@ export const wrapper = (
     ...optionCategories,
     options,
     descendants,
+    reconfigure,
   };
 };

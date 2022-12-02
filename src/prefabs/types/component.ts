@@ -21,6 +21,10 @@ export interface PrefabWrapper {
   descendants: PrefabReference[];
   optionCategories?: OptionCategory[];
   options: (PrefabWrapperLinkedOption | PrefabWrapperLinkedPartialOption)[];
+  reconfigure?: {
+    children: PrefabComponent[];
+    wizardType: string;
+  };
 }
 
 export interface PrefabComponent {
