@@ -1,4 +1,5 @@
-import { StyleDefinitionState } from "./style";
+import { StyleDefinitionState } from './style';
+import { Properties } from './property';
 
 export type ValueConfig = Record<string, unknown>;
 
@@ -41,7 +42,7 @@ export interface PrefabLinkedOptionBase {
 }
 
 export interface ValueDefault extends PrefabComponentOptionBase {
-  value: boolean | string[] | string | number | ValueConfig;
+  value: boolean | string[] | string | number | ValueConfig | Properties;
   ref?: {
     id?: string;
   };
@@ -91,33 +92,35 @@ export interface PrefabWrapperLinkedPartialOption
 
 export type PrefabComponentStyle = {
   name?: string;
-  overwrite?: {
-    backgroundColor?: {
-      value: string;
-      type: string;
-    };
-    borderColor?: {
-      value: string;
-      type: string;
-    };
-    borderRadius?: string | string[];
-    borderStyle?: string;
-    borderWidth?: string | string[];
-    boxShadow?: string;
-    color?: {
-      value: string;
-      type: string;
-    };
-    fontFamily?: string;
-    fontSize?: string;
-    fontStyle?: string;
-    fontWeight?: string;
-    letterSpacing?: string;
-    lineHeight?: string;
-    padding?: string | string[];
-    textDecoration?: string;
-    textTransform?: string;
-  } | StyleDefinitionState[];
+  overwrite?:
+    | {
+        backgroundColor?: {
+          value: string;
+          type: string;
+        };
+        borderColor?: {
+          value: string;
+          type: string;
+        };
+        borderRadius?: string | string[];
+        borderStyle?: string;
+        borderWidth?: string | string[];
+        boxShadow?: string;
+        color?: {
+          value: string;
+          type: string;
+        };
+        fontFamily?: string;
+        fontSize?: string;
+        fontStyle?: string;
+        fontWeight?: string;
+        letterSpacing?: string;
+        lineHeight?: string;
+        padding?: string | string[];
+        textDecoration?: string;
+        textTransform?: string;
+      }
+    | StyleDefinitionState[];
 };
 
 export type OptionProducer = (key: string) => PrefabComponentOption;
