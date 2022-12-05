@@ -55,7 +55,7 @@ export const component = (
   descendants: PrefabReference[],
   reconfigure?: {
     children: PrefabComponent[];
-    wizardType: string;
+    wizardType?: string;
   },
 ): PrefabComponent => ({
   name,

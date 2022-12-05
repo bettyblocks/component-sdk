@@ -17,6 +17,6 @@ export interface Prefab {
   description?: string;
   reconfigure?: {
     children: PrefabComponent[];
-    wizardType: string;
+    wizardType?: string;
   };
 }

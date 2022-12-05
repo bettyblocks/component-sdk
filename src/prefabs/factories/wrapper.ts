@@ -21,7 +21,7 @@ export const wrapper = (
   descendants: PrefabReference[],
   reconfigure?: {
     children: PrefabComponent[];
-    wizardType: string;
+    wizardType?: string;
   },
 ): PrefabReference => {
   const labelField = attrs.label ? { label: attrs.label } : {};
