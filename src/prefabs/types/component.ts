@@ -21,10 +21,6 @@ export interface PrefabWrapper {
   descendants: PrefabReference[];
   optionCategories?: OptionCategory[];
   options: (PrefabWrapperLinkedOption | PrefabWrapperLinkedPartialOption)[];
-  reconfigure?: {
-    children: PrefabComponent[];
-    wizardType: string;
-  };
 }
 
 export interface PrefabComponent {
@@ -43,8 +39,4 @@ export interface PrefabComponent {
     id: string;
   };
   style?: PrefabComponentStyle;
-  reconfigure?: {
-    children: PrefabComponent[];
-    wizardType: string;
-  };
 }
