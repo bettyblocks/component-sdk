@@ -45,6 +45,8 @@ export interface ValueDefault extends PrefabComponentOptionBase {
   ref?: {
     id?: string;
   };
+  showInReconfigure?: boolean;
+  showInAddChild?: boolean;
 }
 
 export interface ValueRef extends PrefabComponentOptionBase {
@@ -52,6 +54,8 @@ export interface ValueRef extends PrefabComponentOptionBase {
     id?: string;
     value: string | string[];
   };
+  showInReconfigure?: boolean;
+  showInAddChild?: boolean;
 }
 
 export type PrefabComponentOption = ValueDefault | ValueRef;
