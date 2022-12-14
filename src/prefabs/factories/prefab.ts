@@ -104,7 +104,11 @@ export const prefab = (
   attr: Attributes,
   beforeCreate: BeforeCreate | undefined,
   structure: PrefabReference[],
-  reconfigure?: { children: PrefabComponent[]; wizardType?: string },
+  reconfigure?: {
+    children: PrefabComponent[];
+    reconfigureWizardType?: string;
+    addChildWizardType?: string;
+  },
 ): Prefab => ({
   name,
   ...attr,
