@@ -80,6 +80,8 @@ export interface PrefabWrapperLinkedOption extends PrefabLinkedOptionBase {
       optionId: string;
     };
   };
+  showInReconfigure?: boolean;
+  showInAddChild?: boolean;
 }
 
 export interface PrefabWrapperLinkedPartialOption
@@ -91,6 +93,8 @@ export interface PrefabWrapperLinkedPartialOption
       componentId: string;
     };
   };
+  showInReconfigure?: boolean;
+  showInAddChild?: boolean;
 }
 
 export type PrefabComponentStyle = {
