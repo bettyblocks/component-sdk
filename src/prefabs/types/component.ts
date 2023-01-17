@@ -13,6 +13,9 @@ export type PrefabReference = PrefabPartial | PrefabComponent | PrefabWrapper;
 export interface PrefabPartial {
   type: 'PARTIAL';
   partialId: string;
+  ref?: {
+    id: string;
+  };
 }
 
 export interface PrefabWrapper {
