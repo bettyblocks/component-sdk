@@ -22,6 +22,6 @@ export { modelAndRelation } from './modelAndRelation';
 export { property } from './property';
 export { reconfigure } from './reconfigure';
 export { addChild } from './addChild';
-export { createPage } from './createPage';
+export { displayLogic } from './displayLogic';
 
 export * from './configurations';

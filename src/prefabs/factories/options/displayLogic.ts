@@ -19,12 +19,12 @@ const defaultAttributes = {
   value: {},
 };
 
-export const createPage =
+export const displayLogic =
   (label: string, attrs: Attributes = {}): OptionProducer =>
   (key) => ({
     ...defaultAttributes,
     ...attrs,
     key,
-    type: 'CREATE_PAGE',
+    type: 'DISPLAY_LOGIC',
     label,
   });

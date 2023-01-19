@@ -6,7 +6,7 @@ import {
   toggle,
   reconfigure,
   addChild,
-  createPage,
+  displayLogic,
 } from '../../../src/prefabs/factories/options';
 
 test('component builds empty component', (t) => {
@@ -178,12 +178,12 @@ test('component is a data table with a "addChild" option', (t) => {
   t.end();
 });
 
-test('component is a box with a "create-page" option', (t) => {
+test('component is a box with a "display-logic" option', (t) => {
   const result = component(
     'Box',
     {
       options: {
-        createPage: createPage('Create page', { value: '' }),
+        displayLogic: displayLogic('Display logic', { value: '' }),
       },
     },
     [],
@@ -193,9 +193,9 @@ test('component is a box with a "create-page" option', (t) => {
     options: [
       {
         value: '',
-        label: 'Create page',
-        key: 'createPage',
-        type: 'CREATE_PAGE',
+        label: 'Display logic',
+        key: 'displayLogic',
+        type: 'DISPLAY_LOGIC',
       },
     ],
     descendants: [],
