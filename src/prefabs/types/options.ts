@@ -67,6 +67,7 @@ export interface PrefabComponentOptionBase {
       modelRequired: boolean;
     };
     placeholder?: string;
+    showOnDrop?: boolean;
   };
 }
 
