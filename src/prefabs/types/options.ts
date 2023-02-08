@@ -32,7 +32,43 @@ export interface PrefabComponentOptionBase {
   label: string;
   key: string;
   type: string;
-  configuration?: unknown;
+  configuration?: {
+    afterCreate?: {
+      createNewProperty?: {
+        type: string;
+        dependsOn: string;
+        value: string;
+      }[];
+    };
+    allowManageValues?: string;
+    allowRelations?: boolean;
+    allowedExtensions?: string[];
+    allowedInput?: {
+      name: string;
+      value: boolean | string | number;
+    }[];
+    allowedTypes?: string[];
+    apiVersion?: string;
+    as?: 'BUTTONGROUP' | 'DROPDOWN' | 'MULTILINE' | 'UNIT' | 'VISIBILITY';
+    component?: string;
+    condition?: {
+      type: 'SHOW' | 'HIDE';
+      option: string;
+      comparator: 'EQ';
+      value: string | boolean | number;
+    };
+    dataType?: string;
+    dependsOn?: string;
+    disabled?: boolean;
+    mediaType?: 'IMAGE' | 'VIDEO';
+    modal?: {
+      type: 'MODEL_AND_PROPERTIES';
+      generateCustomModel: boolean;
+      modelRequired: boolean;
+    };
+    placeholder?: string;
+    showOnDrop?: boolean;
+  };
 }
 
 export interface PrefabLinkedOptionBase {
