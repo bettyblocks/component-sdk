@@ -33,13 +33,6 @@ export interface PrefabComponentOptionBase {
   key: string;
   type: string;
   configuration?: {
-    afterCreate?: {
-      createNewProperty?: {
-        type: string;
-        dependsOn: string;
-        value: string;
-      }[];
-    };
     allowManageValues?: string;
     allowRelations?: boolean;
     allowedExtensions?: string[];
@@ -56,6 +49,11 @@ export interface PrefabComponentOptionBase {
       option: string;
       comparator: 'EQ';
       value: string | boolean | number;
+    };
+    createNewProperty?: {
+      type: string;
+      dependsOn?: string;
+      value: string;
     };
     dataType?: string;
     dependsOn?: string;
