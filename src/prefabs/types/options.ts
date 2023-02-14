@@ -33,6 +33,7 @@ export interface PrefabComponentOptionBase {
   key: string;
   type: string;
   configuration?: {
+    allowedKinds?: string[];
     allowManageValues?: string;
     allowRelations?: boolean;
     allowedExtensions?: string[];

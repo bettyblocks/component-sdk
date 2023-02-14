@@ -7,6 +7,7 @@ import {
   reconfigure,
   addChild,
   displayLogic,
+  property,
 } from '../../../src/prefabs/factories/options';
 
 test('component builds empty component', (t) => {
@@ -199,6 +200,82 @@ test('component is a box with a "display-logic" option', (t) => {
       },
     ],
     descendants: [],
+    type: 'COMPONENT',
+  };
+
+  t.deepEqual(result, expected);
+  t.end();
+});
+
+test('component is a data table with "reconfigure" options', (t) => {
+  const result = component(
+    'Data table',
+    {
+      options: {
+        addChild: addChild('Add child', { value: '' }),
+      },
+    },
+    [
+      component(
+        'Data table column',
+        {
+          options: {
+            property: property('Property', {
+              value: '',
+              configuration: {
+                createNewProperty: {
+                  type: 'TEXT',
+                  dependsOn: 'model',
+                  value: 'New property',
+                },
+                showOnDrop: true,
+                allowedKinds: ['TEXT', 'URL'],
+              },
+              showInReconfigure: true,
+              showInAddChild: true,
+            }),
+          },
+        },
+        [],
+      ),
+    ],
+  );
+  const expected = {
+    name: 'Data table',
+    options: [
+      {
+        value: '',
+        label: 'Add child',
+        key: 'addChild',
+        type: 'ADD_CHILD',
+      },
+    ],
+    descendants: [
+      {
+        name: 'Data table column',
+        options: [
+          {
+            value: '',
+            label: 'Property',
+            key: 'property',
+            type: 'PROPERTY',
+            configuration: {
+              createNewProperty: {
+                value: 'New property',
+                dependsOn: 'model',
+                type: 'TEXT',
+              },
+              showOnDrop: true,
+              allowedKinds: ['TEXT', 'URL'],
+            },
+            showInReconfigure: true,
+            showInAddChild: true,
+          },
+        ],
+        descendants: [],
+        type: 'COMPONENT',
+      },
+    ],
     type: 'COMPONENT',
   };
 

@@ -79,7 +79,7 @@ test('linked builds an option where value contains a number', (t) => {
   t.end();
 });
 
-test.only('linkedPartial builds option', (t) => {
+test('linkedPartial builds option', (t) => {
   const result = linkedPartial({
     label: 'my linked partial label',
     value: {
