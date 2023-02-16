@@ -67,6 +67,7 @@ export interface PrefabComponentOptionBase {
     };
     placeholder?: string;
     showOnDrop?: boolean;
+    showThemeColor?: boolean;
   };
 }
 
