@@ -22,7 +22,7 @@ const defaultAttributes = {
 export const buttongroup =
   (
     label: string,
-    options: [string, string][],
+    options: [string, string, string?][],
     attrs: Attributes = {},
   ): OptionProducer =>
   (key) => ({
@@ -34,7 +34,11 @@ export const buttongroup =
     configuration: {
       as: 'BUTTONGROUP',
       dataType: 'string',
-      allowedInput: options.map(([name, value]) => ({ name, value })),
+      allowedInput: options.map(([name, value, icon]) => ({
+        name,
+        value,
+        icon,
+      })),
       ...((attrs.configuration as any) || {}),
     },
   });
