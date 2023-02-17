@@ -1,5 +1,5 @@
 export enum ThemeColor {
-  INHERITED = '[Inherited]',
+  INHERIT = '[Inherit]',
   PRIMARY = 'Primary',
   SECONDARY = 'Secondary',
   SUCCESS = 'Success',
