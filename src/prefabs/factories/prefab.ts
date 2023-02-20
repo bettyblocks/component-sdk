@@ -48,6 +48,10 @@ export type BeforeCreateArgs = {
       kind: ActionVariableKind,
       options: object,
     ) => Promise<ActionVariable>;
+    addModelAndProperties: (
+      modelName: string,
+      properties: Property[],
+    ) => Promise<Model>;
     prepareAction: (
       componentId: string,
       idProperty: Property,
