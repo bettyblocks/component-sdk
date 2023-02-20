@@ -2,7 +2,7 @@ import { ActionVariable } from '../types/ActionVariable';
 import { PrefabComponent, PrefabReference } from '../types/component';
 import { Model } from '../types/model';
 import { Prefab } from '../types/prefabs';
-import { Property, PropertyKind } from '../types/property';
+import { Property, PropertyKind, ModelPropertyInput } from '../types/property';
 import { BettyPrefabs } from '../types/constants/BettyPrefabs';
 import { PreparedAction, PreparedInput } from '../types/helpers';
 import { PrefabComponentOption, ActionVariableKind } from '../types';
@@ -50,7 +50,7 @@ export type BeforeCreateArgs = {
     ) => Promise<ActionVariable>;
     addModelAndProperties: (
       modelName: string,
-      properties: Property[],
+      properties: ModelPropertyInput[],
     ) => Promise<Model>;
     prepareAction: (
       componentId: string,

@@ -58,6 +58,11 @@ export interface Property {
   kind: PropertyKind;
 }
 
+export interface ModelPropertyInput {
+  label: string;
+  kind: PropertyKind;
+}
+
 export interface Properties {
   id: string;
   name: string;
