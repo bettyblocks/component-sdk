@@ -7,6 +7,7 @@ import { BettyPrefabs } from '../types/constants/BettyPrefabs';
 import { PreparedAction, PreparedInput } from '../types/helpers';
 import { PrefabComponentOption, ActionVariableKind } from '../types';
 import { AuthenticationProfile } from '../types/authenticationProfile';
+import { SchemaModel } from '../types/schemaModel';
 
 type Attributes = Omit<Prefab, 'name' | 'structure' | 'beforeCreate'>;
 
@@ -48,6 +49,7 @@ export type BeforeCreateArgs = {
       kind: ActionVariableKind,
       options: object,
     ) => Promise<ActionVariable>;
+    addSchemaModel: (name: string, jsonSchema: string) => Promise<SchemaModel>;
     addModelAndProperties: (
       modelName: string,
       properties: ModelPropertyInput[],
