@@ -54,7 +54,7 @@ export interface PrefabComponentOptionBase {
     createNewProperty?: {
       type: string;
       dependsOn?: string;
-      value: string;
+      value?: string;
     };
     dataType?: string;
     dependsOn?: string;
