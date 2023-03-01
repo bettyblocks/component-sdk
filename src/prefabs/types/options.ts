@@ -105,6 +105,7 @@ export type PrefabWrapperLinkedOptionConfiguration = {
     comparator: 'EQ';
     value: string | boolean | number;
   };
+  showOnDrop?: boolean;
 };
 
 export interface PrefabWrapperLinkedOption extends PrefabLinkedOptionBase {
