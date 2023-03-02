@@ -79,6 +79,48 @@ test('linked builds an option where value contains a number', (t) => {
   t.end();
 });
 
+test('linked builds an option where configuration contains showOnDrop', (t) => {
+  const result = linked({
+    label: 'Form title example',
+    configuration: {
+      condition: {
+        type: 'SHOW',
+        option: 'optionWithButtonGroup',
+        comparator: 'EQ',
+        value: 1,
+      },
+      showOnDrop: true,
+    },
+    value: {
+      ref: { componentId: '#tabs', optionId: '#tabsOptionWithButtonGroup' },
+    },
+  })('linkedTextComponentExample');
+
+  const expected = {
+    value: {
+      ref: {
+        componentId: '#tabs',
+        optionId: '#tabsOptionWithButtonGroup',
+      },
+    },
+    configuration: {
+      condition: {
+        type: 'SHOW',
+        option: 'optionWithButtonGroup',
+        comparator: 'EQ',
+        value: 1,
+      },
+      showOnDrop: true,
+    },
+    key: 'linkedTextComponentExample',
+    type: 'LINKED_OPTION',
+    label: 'Form title example',
+  };
+
+  t.deepEqual(result, expected);
+  t.end();
+});
+
 test('linkedPartial builds option', (t) => {
   const result = linkedPartial({
     label: 'my linked partial label',
@@ -95,6 +137,33 @@ test('linkedPartial builds option', (t) => {
     key: 'linkedPartial',
     type: 'LINKED_PARTIAL',
     label: 'my linked partial label',
+  };
+  t.deepEqual(result, expected);
+  t.end();
+});
+
+test('linkedPartial builds with showOnDrop configuration', (t) => {
+  const result = linkedPartial({
+    label: 'my linked partial label',
+    value: {
+      ref: { componentId: '#partialId' },
+    },
+    configuration: {
+      showOnDrop: true,
+    },
+  })('linkedPartial');
+  const expected = {
+    value: {
+      ref: {
+        componentId: '#partialId',
+      },
+    },
+    key: 'linkedPartial',
+    type: 'LINKED_PARTIAL',
+    label: 'my linked partial label',
+    configuration: {
+      showOnDrop: true,
+    },
   };
   t.deepEqual(result, expected);
   t.end();
