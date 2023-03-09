@@ -56,6 +56,12 @@ export interface PrefabComponentOptionBase {
       dependsOn?: string;
       value?: string;
     };
+    createNewAction?: {
+      template: string;
+      name?: string;
+      permissions?: string;
+      value?: string;
+    };
     dataType?: string;
     dependsOn?: string;
     disabled?: boolean;
