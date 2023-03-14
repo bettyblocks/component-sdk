@@ -223,7 +223,7 @@ test('component is a data table with "reconfigure" options', (t) => {
             property: property('Property', {
               value: '',
               configuration: {
-                createNewProperty: {
+                createProperty: {
                   type: 'TEXT',
                   dependsOn: 'model',
                   value: 'New property',
@@ -261,7 +261,7 @@ test('component is a data table with "reconfigure" options', (t) => {
             key: 'property',
             type: 'PROPERTY',
             configuration: {
-              createNewProperty: {
+              createProperty: {
                 value: 'New property',
                 dependsOn: 'model',
                 type: 'TEXT',

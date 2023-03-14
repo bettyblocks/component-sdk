@@ -56,9 +56,15 @@ export interface PrefabComponentOptionBase {
       comparator: 'EQ';
       value: string | boolean | number;
     };
-    createNewProperty?: {
+    createProperty?: {
       type: string;
       dependsOn?: string;
+      value?: string;
+    };
+    createAction?: {
+      template: string;
+      name?: string;
+      permissions?: string;
       value?: string;
     };
     dataType?: string;
