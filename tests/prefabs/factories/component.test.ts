@@ -223,12 +223,6 @@ test('component is a data table with "reconfigure" options', (t) => {
             property: property('Property', {
               value: '',
               configuration: {
-                createAction: {
-                  template: 'update',
-                  name: 'Action name',
-                  permissions: 'public',
-                  value: '',
-                },
                 createProperty: {
                   type: 'TEXT',
                   dependsOn: 'model',
@@ -267,12 +261,6 @@ test('component is a data table with "reconfigure" options', (t) => {
             key: 'property',
             type: 'PROPERTY',
             configuration: {
-              createAction: {
-                template: 'update',
-                name: 'Action name',
-                permissions: 'public',
-                value: '',
-              },
               createProperty: {
                 value: 'New property',
                 dependsOn: 'model',
