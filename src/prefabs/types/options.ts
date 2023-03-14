@@ -32,6 +32,11 @@ export interface PrefabComponentOptionBase {
   label: string;
   key: string;
   type: string;
+  optionRef?: {
+    id?: string;
+    sourceId?: string;
+    inherit?: 'label' | 'name';
+  };
   configuration?: {
     allowedKinds?: string[];
     allowManageValues?: string;
@@ -117,6 +122,11 @@ export interface PrefabWrapperLinkedOption extends PrefabLinkedOptionBase {
       optionId: string;
     };
   };
+  optionRef?: {
+    id?: string;
+    sourceId?: string;
+    inherit?: 'label' | 'name';
+  };
   showInReconfigure?: boolean;
   showInAddChild?: boolean;
 }
@@ -129,6 +139,11 @@ export interface PrefabWrapperLinkedPartialOption
     ref: {
       componentId: string;
     };
+  };
+  optionRef?: {
+    id?: string;
+    sourceId?: string;
+    inherit?: 'label' | 'name';
   };
   showInReconfigure?: boolean;
   showInAddChild?: boolean;

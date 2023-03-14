@@ -168,3 +168,62 @@ test('linkedPartial builds with showOnDrop configuration', (t) => {
   t.deepEqual(result, expected);
   t.end();
 });
+
+test('linkedOption accepts optionRef', (t) => {
+  const result = linked({
+    label: 'Property',
+    value: {
+      ref: { componentId: '#component', optionId: '#property' },
+    },
+    optionRef: {
+      id: '#property',
+    },
+  })('linkedPropertyExample');
+
+  const expected = {
+    value: {
+      ref: {
+        componentId: '#component',
+        optionId: '#property',
+      },
+    },
+    optionRef: {
+      id: '#property',
+    },
+    key: 'linkedPropertyExample',
+    type: 'LINKED_OPTION',
+    label: 'Property',
+  };
+
+  t.deepEqual(result, expected);
+  t.end();
+});
+
+test('linkedPartial accepts optionRef', (t) => {
+  const result = linkedPartial({
+    label: 'my linked partial property',
+    value: {
+      ref: { componentId: '#partialId' },
+    },
+    optionRef: {
+      sourceId: '#property',
+      inherit: 'label',
+    },
+  })('linkedPartial');
+  const expected = {
+    value: {
+      ref: {
+        componentId: '#partialId',
+      },
+    },
+    key: 'linkedPartial',
+    type: 'LINKED_PARTIAL',
+    label: 'my linked partial property',
+    optionRef: {
+      sourceId: '#property',
+      inherit: 'label',
+    },
+  };
+  t.deepEqual(result, expected);
+  t.end();
+});

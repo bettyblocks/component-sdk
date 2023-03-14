@@ -284,3 +284,67 @@ test('component is a data table with "reconfigure" options', (t) => {
   t.deepEqual(result, expected);
   t.end();
 });
+
+test('component can handle optionRefs', (t) => {
+  const result = component(
+    'Data table',
+    {
+      options: {
+        addChild: addChild('Add child', { value: '' }),
+      },
+    },
+    [
+      component(
+        'Data table column',
+        {
+          options: {
+            property: property('Property', {
+              value: '',
+              optionRef: {
+                id: '#property',
+                sourceId: '#other',
+                inherit: 'label',
+              },
+            }),
+          },
+        },
+        [],
+      ),
+    ],
+  );
+  const expected = {
+    name: 'Data table',
+    options: [
+      {
+        value: '',
+        label: 'Add child',
+        key: 'addChild',
+        type: 'ADD_CHILD',
+      },
+    ],
+    descendants: [
+      {
+        name: 'Data table column',
+        options: [
+          {
+            value: '',
+            label: 'Property',
+            key: 'property',
+            type: 'PROPERTY',
+            optionRef: {
+              id: '#property',
+              sourceId: '#other',
+              inherit: 'label',
+            },
+          },
+        ],
+        descendants: [],
+        type: 'COMPONENT',
+      },
+    ],
+    type: 'COMPONENT',
+  };
+
+  t.deepEqual(result, expected);
+  t.end();
+});
