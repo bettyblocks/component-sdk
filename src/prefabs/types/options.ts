@@ -41,6 +41,8 @@ export interface PrefabComponentOptionBase {
     allowedKinds?: string[];
     allowManageValues?: string;
     allowRelations?: boolean;
+    allowFormatting?: boolean;
+    allowPropertyName?: boolean;
     allowedExtensions?: string[];
     allowedInput?: {
       name: string;
