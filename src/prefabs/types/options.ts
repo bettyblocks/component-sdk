@@ -16,6 +16,19 @@ export enum ActionVariableKind {
   STRING = 'STRING',
 }
 
+export type ActionVariableType =
+  | 'ARRAY'
+  | 'BOOLEAN'
+  | 'COLLECTION'
+  | 'DATE'
+  | 'DATE_TIME'
+  | 'DECIMAL'
+  | 'INTEGER'
+  | 'JSON'
+  | 'OBJECT'
+  | 'RECORD'
+  | 'STRING';
+
 export type OptionCategory = {
   label: string;
   expanded?: boolean;
@@ -59,7 +72,7 @@ export interface PrefabComponentOptionBase {
       value: string | boolean | number;
     };
     createProperty?: {
-      type: string;
+      type: ActionVariableType;
       dependsOn?: string;
       value?: string;
     };
