@@ -72,7 +72,6 @@ export interface PrefabComponentOptionBase {
     };
     createProperty?: {
       type: ActionVariableType;
-      dependsOn?: string;
       value?: string;
     };
     createAction?: {
@@ -94,6 +93,7 @@ export interface PrefabComponentOptionBase {
     showOnDrop?: boolean;
     showTextStyleColor?: boolean;
     showObjectValues?: boolean;
+    schemaModel?: string;
   };
 }
 
