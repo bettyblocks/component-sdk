@@ -93,7 +93,7 @@ export interface PrefabComponentOptionBase {
     placeholder?: string;
     showOnDrop?: boolean;
     showTextStyleColor?: boolean;
-    showObjectValues?: string;
+    showObjectValues?: boolean;
   };
 }
 
