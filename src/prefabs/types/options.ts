@@ -52,7 +52,6 @@ export interface PrefabComponentOptionBase {
   };
   configuration?: {
     allowedKinds?: string[];
-    allowManageValues?: string;
     allowRelations?: boolean;
     allowFormatting?: boolean;
     allowPropertyName?: boolean;
@@ -94,6 +93,7 @@ export interface PrefabComponentOptionBase {
     placeholder?: string;
     showOnDrop?: boolean;
     showTextStyleColor?: boolean;
+    showObjectValues?: string;
   };
 }
 
