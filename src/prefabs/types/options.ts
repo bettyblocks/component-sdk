@@ -41,6 +41,9 @@ export type OptionCategory = {
   };
 };
 
+export type RowItem = string | number | boolean;
+export type AllowedValue = Record<string | 'uuid', RowItem>;
+
 export interface PrefabComponentOptionBase {
   label: string;
   key: string;
@@ -92,7 +95,9 @@ export interface PrefabComponentOptionBase {
     placeholder?: string;
     showOnDrop?: boolean;
     showTextStyleColor?: boolean;
-    showObjectValues?: boolean;
+    manageObjectValues?: {
+      value: AllowedValue[];
+    };
   };
 }
 
