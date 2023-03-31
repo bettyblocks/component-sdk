@@ -226,7 +226,6 @@ test('component is a data table with "reconfigure" options', (t) => {
               configuration: {
                 createProperty: {
                   type: ActionVariableKind.STRING,
-                  dependsOn: 'model',
                   value: 'New property',
                 },
                 showOnDrop: true,
@@ -264,7 +263,6 @@ test('component is a data table with "reconfigure" options', (t) => {
             configuration: {
               createProperty: {
                 value: 'New property',
-                dependsOn: 'model',
                 type: ActionVariableKind.STRING,
               },
               showOnDrop: true,

@@ -41,6 +41,9 @@ export type OptionCategory = {
   };
 };
 
+export type RowItem = string | number | boolean;
+export type AllowedValue = Record<string | 'uuid', RowItem>;
+
 export interface PrefabComponentOptionBase {
   label: string;
   key: string;
@@ -52,7 +55,6 @@ export interface PrefabComponentOptionBase {
   };
   configuration?: {
     allowedKinds?: string[];
-    allowManageValues?: string;
     allowRelations?: boolean;
     allowFormatting?: boolean;
     allowPropertyName?: boolean;
@@ -73,7 +75,6 @@ export interface PrefabComponentOptionBase {
     };
     createProperty?: {
       type: ActionVariableType;
-      dependsOn?: string;
       value?: string;
     };
     createAction?: {
@@ -94,6 +95,9 @@ export interface PrefabComponentOptionBase {
     placeholder?: string;
     showOnDrop?: boolean;
     showTextStyleColor?: boolean;
+    manageObjectValues?: {
+      value: AllowedValue[];
+    };
   };
 }
 
