@@ -76,6 +76,7 @@ export enum Icon {
   NavItemIcon = 'NavItemIcon',
   NavSidebarIcon = 'NavSidebarIcon',
   NumberInputIcon = 'NumberInputIcon',
+  ObectIcon = 'ObjectIcon',
   OpenPageIcon = 'OpenPageIcon',
   OrderedListIcon = 'OrderedListIcon',
   PanelIcon = 'PanelIcon',
