@@ -14,6 +14,7 @@ export enum ActionVariableKind {
   OBJECT = 'OBJECT',
   RECORD = 'RECORD',
   STRING = 'STRING',
+  TEXT = 'TEXT',
 }
 
 export type ActionVariableType =
@@ -27,7 +28,8 @@ export type ActionVariableType =
   | 'JSON'
   | 'OBJECT'
   | 'RECORD'
-  | 'STRING';
+  | 'STRING'
+  | 'TEXT';
 
 export type OptionCategory = {
   label: string;
