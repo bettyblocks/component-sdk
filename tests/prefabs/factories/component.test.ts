@@ -1,5 +1,5 @@
 import test from 'tape';
-import { ActionVariableKind } from '../../../src';
+import { CreatePropertyKind } from '../../../src';
 import { component } from '../../../src/prefabs/factories/component';
 import {
   variable,
@@ -225,7 +225,7 @@ test('component is a data table with "reconfigure" options', (t) => {
               value: '',
               configuration: {
                 createProperty: {
-                  type: ActionVariableKind.STRING,
+                  type: CreatePropertyKind.STRING,
                   value: 'New property',
                 },
                 showOnDrop: true,
@@ -263,7 +263,7 @@ test('component is a data table with "reconfigure" options', (t) => {
             configuration: {
               createProperty: {
                 value: 'New property',
-                type: ActionVariableKind.STRING,
+                type: CreatePropertyKind.STRING,
               },
               showOnDrop: true,
               showTextStyleColor: true,
