@@ -14,7 +14,6 @@ export enum ActionVariableKind {
   OBJECT = 'OBJECT',
   RECORD = 'RECORD',
   STRING = 'STRING',
-  TEXT = 'TEXT',
 }
 
 export type ActionVariableType =
@@ -28,8 +27,44 @@ export type ActionVariableType =
   | 'JSON'
   | 'OBJECT'
   | 'RECORD'
-  | 'STRING'
-  | 'TEXT';
+  | 'STRING';
+
+export enum CreatePropertyKind {
+  AUTO_INCREMENT = 'AUTO_INCREMENT',
+  BOOLEAN = 'BOOLEAN',
+  BOOLEAN_EXPRESSION = 'BOOLEAN_EXPRESSION',
+  DATE = 'DATE',
+  DATE_EXPRESSION = 'DATE_EXPRESSION',
+  DATE_TIME = 'DATE_TIME',
+  DATE_TIME_EXPRESSION = 'DATE_TIME_EXPRESSION',
+  DECIMAL = 'DECIMAL',
+  DECIMAL_EXPRESSION = 'DECIMAL_EXPRESSION',
+  EMAIL_ADDRESS = 'EMAIL_ADDRESS',
+  FILE = 'FILE',
+  IBAN = 'IBAN',
+  IMAGE = 'IMAGE',
+  INTEGER = 'INTEGER',
+  INTEGER_EXPRESSION = 'INTEGER_EXPRESSION',
+  LIST = 'LIST',
+  MINUTES = 'MINUTES',
+  MINUTES_EXPRESSION = 'MINUTES_EXPRESSION',
+  MULTI_FILE = 'MULTI_FILE',
+  MULTI_IMAGE = 'MULTI_IMAGE',
+  OBJECT = 'OBJECT',
+  PASSWORD = 'PASSWORD',
+  PDF = 'PDF',
+  PHONE_NUMBER = 'PHONE_NUMBER',
+  PRICE = 'PRICE',
+  PRICE_EXPRESSION = 'PRICE_EXPRESSION',
+  RICH_TEXT = 'RICH_TEXT',
+  STRING = 'STRING',
+  STRING_EXPRESSION = 'STRING_EXPRESSION',
+  TEXT = 'TEXT',
+  TEXT_EXPRESSION = 'TEXT_EXPRESSION',
+  TIME = 'TIME',
+  URL = 'URL',
+  ZIPCODE = 'ZIPCODE',
+}
 
 export type OptionCategory = {
   label: string;
@@ -76,7 +111,7 @@ export interface PrefabComponentOptionBase {
       value: string | boolean | number;
     };
     createProperty?: {
-      type: ActionVariableType;
+      type: CreatePropertyKind;
       value?: string;
     };
     createAction?: {
