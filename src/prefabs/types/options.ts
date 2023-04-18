@@ -88,7 +88,7 @@ export interface PrefabComponentOptionBase {
   optionRef?: {
     id?: string;
     sourceId?: string;
-    inherit?: 'label' | 'name';
+    inherit?: 'label' | 'name' | 'variableProperty';
   };
   configuration?: {
     allowedKinds?: string[];
@@ -187,7 +187,7 @@ export interface PrefabWrapperLinkedOption extends PrefabLinkedOptionBase {
   optionRef?: {
     id?: string;
     sourceId?: string;
-    inherit?: 'label' | 'name';
+    inherit?: 'label' | 'name' | 'variableProperty';
   };
   showInReconfigure?: boolean;
   showInAddChild?: boolean;
@@ -205,7 +205,7 @@ export interface PrefabWrapperLinkedPartialOption
   optionRef?: {
     id?: string;
     sourceId?: string;
-    inherit?: 'label' | 'name';
+    inherit?: 'label' | 'name' | 'variableProperty';
   };
   showInReconfigure?: boolean;
   showInAddChild?: boolean;
