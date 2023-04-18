@@ -80,7 +80,7 @@ export type BeforeCreateArgs = {
       model: Model,
       property: Property,
       variable: ActionVariable,
-      relatedIdProperties?: Record<string, string>,
+      relatedIdProperties?: string[][],
       relatedModelIds?: Record<string, string>,
     ) => PrefabReference;
     makeBettyUpdateInput: (
@@ -88,7 +88,7 @@ export type BeforeCreateArgs = {
       model: Model,
       property: Property,
       variable: ActionVariable,
-      relatedIdProperties?: Record<string, string>,
+      relatedIdProperties?: string[][],
       relatedModelIds?: Record<string, string>,
     ) => PrefabReference;
     BettyPrefabs: typeof BettyPrefabs;
