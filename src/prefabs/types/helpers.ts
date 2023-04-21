@@ -6,7 +6,7 @@ export interface PreparedAction {
     actionId: string;
   };
   variables: Record<string, [Property, ActionVariable]>;
-  relatedIdProperties: Record<string, string>;
+  relatedIdProperties: string[][];
   resultVariable: ActionVariable;
   recordInputVariable: ActionVariable;
   relatedModelIds: Record<string, string>;
