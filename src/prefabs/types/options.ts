@@ -133,6 +133,8 @@ export interface PrefabComponentOptionBase {
     showOnDrop?: boolean;
     showTextStyleColor?: boolean;
     manageObjectValues?: {
+      buttonLabel?: string;
+      label?: string;
       value: AllowedValue[];
     };
   };
