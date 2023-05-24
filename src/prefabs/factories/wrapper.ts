@@ -31,6 +31,7 @@ export const wrapper = (
 
   return {
     type: 'WRAPPER',
+    name: 'Wrapper',
     ...labelField,
     ...optionCategories,
     options,

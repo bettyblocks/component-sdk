@@ -7,6 +7,7 @@ test('builds a wrapper prefab', (t) => {
   const result = wrapper({}, []);
   const expected = {
     type: 'WRAPPER',
+    name: 'Wrapper',
     options: [],
     descendants: [],
   };
@@ -35,6 +36,7 @@ test('builds a wrapper prefab with descendants and inner wrapper', (t) => {
   ]);
   const expected = {
     type: 'WRAPPER',
+    name: 'Wrapper',
     options: [],
     descendants: [
       {
