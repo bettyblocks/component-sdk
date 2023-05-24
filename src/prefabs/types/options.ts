@@ -136,6 +136,7 @@ export interface PrefabComponentOptionBase {
       buttonLabel?: string;
       label?: string;
       value: AllowedValue[];
+      selectableObjectKey?: boolean;
     };
   };
 }
