@@ -88,7 +88,7 @@ export interface PrefabComponentOptionBase {
   optionRef?: {
     id?: string;
     sourceId?: string;
-    inherit?: 'label' | 'name' | 'value' | Array<{} | string>;
+    inherit?: 'label' | 'name' | 'value' | Array<{} | string> | {};
   };
   configuration?: {
     allowedKinds?: string[];
