@@ -138,7 +138,7 @@ export interface PrefabComponentOptionBase {
       value: AllowedValue[];
       selectableObjectKey?: boolean;
     };
-    pushToWrapper?: boolean;
+    pushToWrapper?: string;
   };
 }
 
