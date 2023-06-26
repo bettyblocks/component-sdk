@@ -144,7 +144,7 @@ export interface PrefabComponentOptionBase {
         type: 'SHOW' | 'HIDE';
         option: string;
         comparator: 'EQ';
-        value: string | boolean | number;
+        value: string | boolean | number | { sourceId: string, inherit: string };
       };
     }
   };
