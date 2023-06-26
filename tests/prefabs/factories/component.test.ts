@@ -231,7 +231,15 @@ test('component is a data table with "reconfigure" options', (t) => {
                 showOnDrop: true,
                 showTextStyleColor: true,
                 allowedKinds: ['TEXT', 'URL'],
-                pushToWrapper: 'WrapperLabel',
+                pushToWrapper: {
+                  name: 'WrapperLabel',
+                  condition: {
+                    type: 'SHOW',
+                    option: 'visibility',
+                    comparator: 'EQ',
+                    value: true,
+                  },
+                }
               },
               showInReconfigure: true,
               showInAddChild: true,
@@ -269,7 +277,15 @@ test('component is a data table with "reconfigure" options', (t) => {
               showOnDrop: true,
               showTextStyleColor: true,
               allowedKinds: ['TEXT', 'URL'],
-              pushToWrapper: 'WrapperLabel',
+              pushToWrapper: {
+                name: 'WrapperLabel',
+                condition: {
+                  type: 'SHOW',
+                  option: 'visibility',
+                  comparator: 'EQ',
+                  value: true,
+                },
+              }
             },
             showInReconfigure: true,
             showInAddChild: true,

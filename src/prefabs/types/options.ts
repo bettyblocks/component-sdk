@@ -138,7 +138,15 @@ export interface PrefabComponentOptionBase {
       value: AllowedValue[];
       selectableObjectKey?: boolean;
     };
-    pushToWrapper?: string;
+    pushToWrapper?: {
+      name: string;
+      condition?: {
+        type: 'SHOW' | 'HIDE';
+        option: string;
+        comparator: 'EQ';
+        value: string | boolean | number;
+      };
+    }
   };
 }
 
