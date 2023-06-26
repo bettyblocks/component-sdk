@@ -5,8 +5,11 @@ import { Prefab } from '../types/prefabs';
 import { Property, PropertyKind, ModelPropertyInput } from '../types/property';
 import { BettyPrefabs } from '../types/constants/BettyPrefabs';
 import { PreparedAction, PreparedInput } from '../types/helpers';
-import { PrefabComponentOption, ActionVariableKind } from '../types';
-import { AuthenticationProfile } from '../types/authenticationProfile';
+import {
+  PrefabComponentOption,
+  ActionVariableKind,
+  MakePrepareActionArgs,
+} from '../types';
 import { SchemaModel } from '../types/schemaModel';
 
 type Attributes = Omit<Prefab, 'name' | 'structure' | 'beforeCreate'>;
@@ -54,17 +57,7 @@ export type BeforeCreateArgs = {
       modelName: string,
       properties: ModelPropertyInput[],
     ) => Promise<Model>;
-    prepareAction: (
-      componentId: string,
-      idProperty: Property,
-      properties: Property[],
-      actionTemplate: 'create' | 'update' | 'delete' | 'login' | 'empty',
-      authenticationProfile?: AuthenticationProfile,
-      actionName?: string,
-      permissions?: 'public' | 'private' | 'inherit',
-      getPageAuthenticationProfileId?: string,
-      pageName?: string,
-    ) => Promise<PreparedAction>;
+    prepareAction: (...args: MakePrepareActionArgs) => Promise<PreparedAction>;
     prepareInput: (
       actionId: string | null,
       variableName: string | undefined,
