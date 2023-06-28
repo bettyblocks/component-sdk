@@ -1,13 +1,26 @@
 import { ActionVariable } from '../types/ActionVariable';
-import { PrefabComponent, PrefabReference } from '../types/component';
+import {
+  PrefabComponent,
+  PrefabReference,
+  PrefabWrapper,
+} from '../types/component';
 import { Model } from '../types/model';
 import { Prefab } from '../types/prefabs';
 import { Property, PropertyKind, ModelPropertyInput } from '../types/property';
 import { BettyPrefabs } from '../types/constants/BettyPrefabs';
-import { PreparedAction, PreparedInput } from '../types/helpers';
-import { PrefabComponentOption, ActionVariableKind } from '../types';
+import {
+  PreparedAction,
+  PreparedInput,
+  LinkOptionProps,
+} from '../types/helpers';
+import {
+  PrefabComponentOption,
+  ActionVariableKind,
+  LinkedOptionProducer,
+} from '../types';
 import { AuthenticationProfile } from '../types/authenticationProfile';
 import { SchemaModel } from '../types/schemaModel';
+import { WrapperAttrs } from './wrapper';
 
 type Attributes = Omit<Prefab, 'name' | 'structure' | 'beforeCreate'>;
 
@@ -100,6 +113,11 @@ export type BeforeCreateArgs = {
       transform: (option: PrefabComponentOption) => PrefabComponentOption,
     ) => void;
     createBlacklist: (whiteList: PropertyKind[]) => PropertyKind[];
+    createWrapper: (
+      attrs: WrapperAttrs,
+      descendants: PrefabReference[],
+    ) => PrefabWrapper;
+    linkOption: (attrs: LinkOptionProps) => LinkedOptionProducer;
   };
 };
 

@@ -1,4 +1,5 @@
 import { ActionVariable } from './ActionVariable';
+import { PrefabWrapperLinkedOption } from './options';
 import { Property } from './property';
 
 export interface PreparedAction {
@@ -19,3 +20,6 @@ export interface PreparedInput {
   isRelational: boolean;
   isMultiRelational: boolean;
 }
+
+type RedundantKeys = 'type' | 'key';
+export type LinkOptionProps = Omit<PrefabWrapperLinkedOption, RedundantKeys>;
