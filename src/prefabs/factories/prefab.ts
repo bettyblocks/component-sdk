@@ -17,8 +17,8 @@ import {
   PrefabComponentOption,
   ActionVariableKind,
   LinkedOptionProducer,
+  MakePrepareActionArgs,
 } from '../types';
-import { AuthenticationProfile } from '../types/authenticationProfile';
 import { SchemaModel } from '../types/schemaModel';
 import { WrapperAttrs } from './wrapper';
 
@@ -67,17 +67,7 @@ export type BeforeCreateArgs = {
       modelName: string,
       properties: ModelPropertyInput[],
     ) => Promise<Model>;
-    prepareAction: (
-      componentId: string,
-      idProperty: Property,
-      properties: Property[],
-      actionTemplate: 'create' | 'update' | 'delete' | 'login' | 'empty',
-      authenticationProfile?: AuthenticationProfile,
-      actionName?: string,
-      permissions?: 'public' | 'private' | 'inherit',
-      getPageAuthenticationProfileId?: string,
-      pageName?: string,
-    ) => Promise<PreparedAction>;
+    prepareAction: (...args: MakePrepareActionArgs) => Promise<PreparedAction>;
     prepareInput: (
       actionId: string | null,
       variableName: string | undefined,
