@@ -181,7 +181,7 @@ export type PrefabWrapperLinkedOptionConfiguration = {
   condition?: {
     type: 'SHOW' | 'HIDE';
     option: string;
-    comparator: 'EQ';
+    comparator: 'EQ' | 'EQ_COMPONENT_ID';
     value: string | boolean | number;
   };
   showOnDrop?: boolean;
