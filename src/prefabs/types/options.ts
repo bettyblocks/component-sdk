@@ -107,7 +107,7 @@ export interface PrefabComponentOptionBase {
     condition?: {
       type: 'SHOW' | 'HIDE';
       option: string;
-      comparator: 'EQ' | 'EQ_COMPONENT_ID';
+      comparator: 'EQ';
       value: string | boolean | number;
     };
     createProperty?: {
@@ -181,7 +181,7 @@ export type PrefabWrapperLinkedOptionConfiguration = {
   condition?: {
     type: 'SHOW' | 'HIDE';
     option: string;
-    comparator: 'EQ' | 'EQ_COMPONENT_ID';
+    comparator: 'EQ';
     value: string | boolean | number;
   };
   showOnDrop?: boolean;
