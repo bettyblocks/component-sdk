@@ -1,31 +1,16 @@
 import { AuthenticationProfile } from './authenticationProfile';
 import { Property } from './property';
 
-export enum ActionTemplates {
-  CREATE = 'create',
-  UPDATE = 'update',
-  DELETE = 'delete',
-  LOGIN = 'login',
-  EMPTY = 'empty',
-  CUSTOM = 'custom',
-}
-
-export enum ActionPermissions {
-  PUBLIC = 'public',
-  PRIVATE = 'private',
-  INHERIT = 'inherit',
-}
-
 interface PrepareActionObjectProps {
   componentId: string;
-  actionTemplate: ActionTemplates;
+  actionTemplate: string;
   idProperty?: Property;
   properties?: Property[];
   authenticationProfile: AuthenticationProfile;
   pageAuthenticationProfileId?: string;
   actionName?: string;
   pageName?: string;
-  permissions?: ActionPermissions;
+  permissions?: string;
   applyValidation?: boolean;
 }
 
@@ -34,10 +19,10 @@ export type MakePrepareActionArgs =
       string,
       Property | undefined,
       Property[] | undefined,
-      ActionTemplates,
+      string,
       AuthenticationProfile?,
       string?,
-      ActionPermissions?,
+      string?,
       string?,
       string?,
       boolean?,
