@@ -23,5 +23,6 @@ export { property } from './property';
 export { reconfigure } from './reconfigure';
 export { addChild } from './addChild';
 export { displayLogic } from './displayLogic';
+export { pageVariable } from './pageVariable';
 
 export * from './configurations';
