@@ -52,6 +52,15 @@ export const PropertyKind = {
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export type PropertyKind = keyof typeof PropertyKind;
 
+const relationalPropertyKinds = {
+  BELONGS_TO: 'BELONGS_TO',
+  HAS_MANY: 'HAS_MANY',
+  HAS_AND_BELONGS_TO_MANY: 'HAS_AND_BELONGS_TO_MANY',
+  OBJECT: 'OBJECT',
+};
+
+export type RelationalPropertyKind = keyof typeof relationalPropertyKinds;
+
 export interface Property {
   id: string;
   name: string;

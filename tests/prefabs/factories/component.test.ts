@@ -1,9 +1,5 @@
 import test from 'tape';
-import {
-  CreatePropertyKind,
-  PropertyKind,
-  RelationalPropertyKind,
-} from '../../../src';
+import { CreatePropertyKind } from '../../../src';
 import { component } from '../../../src/prefabs/factories/component';
 import {
   variable,
@@ -234,9 +230,9 @@ test('component is a data table with "reconfigure" options', (t) => {
                 },
                 showOnDrop: true,
                 showTextStyleColor: true,
-                allowedKinds: [PropertyKind.TEXT, PropertyKind.URL],
-                allowedClickThroughKinds: [RelationalPropertyKind.BELONGS_TO],
-                allowedSplitButtonKinds: [PropertyKind.TEXT, PropertyKind.URL],
+                allowedKinds: ['TEXT', 'URL'],
+                allowedClickThroughKinds: ['BELONGS_TO'],
+                allowedSplitButtonKinds: ['TEXT', 'URL'],
                 pushToWrapper: {
                   name: 'WrapperLabel',
                   condition: {
@@ -282,9 +278,9 @@ test('component is a data table with "reconfigure" options', (t) => {
               },
               showOnDrop: true,
               showTextStyleColor: true,
-              allowedKinds: [PropertyKind.TEXT, PropertyKind.URL],
-              allowedClickThroughKinds: [RelationalPropertyKind.BELONGS_TO],
-              allowedSplitButtonKinds: [PropertyKind.TEXT, PropertyKind.URL],
+              allowedKinds: ['TEXT', 'URL'],
+              allowedClickThroughKinds: ['BELONGS_TO'],
+              allowedSplitButtonKinds: ['TEXT', 'URL'],
               pushToWrapper: {
                 name: 'WrapperLabel',
                 condition: {
