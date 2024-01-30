@@ -1,3 +1,4 @@
+import { PropertyKind, RelationalPropertyKind } from './property';
 import { StyleDefinitionState } from './style';
 
 export type ValueConfig = Record<string, unknown>;
@@ -92,6 +93,8 @@ export interface PrefabComponentOptionBase {
   };
   configuration?: {
     allowedKinds?: string[];
+    allowedClickThroughKinds?: RelationalPropertyKind[];
+    allowedSplitButtonKinds?: PropertyKind[];
     allowRelations?: boolean;
     allowFormatting?: boolean;
     allowPropertyName?: boolean;
@@ -146,7 +149,7 @@ export interface PrefabComponentOptionBase {
         comparator: 'EQ' | 'EQ_COMPONENT_ID';
         value: string | boolean | number;
       };
-    }
+    };
   };
 }
 
@@ -182,7 +185,7 @@ export type PrefabWrapperLinkedOptionConfiguration = {
     type: 'SHOW' | 'HIDE';
     option: string;
     comparator: 'EQ' | 'EQ_COMPONENT_ID';
-    value: string | boolean | number | { ref: { componentId: string }};
+    value: string | boolean | number | { ref: { componentId: string } };
   };
   showOnDrop?: boolean;
 };

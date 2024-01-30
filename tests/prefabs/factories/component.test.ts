@@ -231,6 +231,8 @@ test('component is a data table with "reconfigure" options', (t) => {
                 showOnDrop: true,
                 showTextStyleColor: true,
                 allowedKinds: ['TEXT', 'URL'],
+                allowedClickThroughKinds: ['BELONGS_TO'],
+                allowedSplitButtonKinds: ['TEXT', 'URL'],
                 pushToWrapper: {
                   name: 'WrapperLabel',
                   condition: {
@@ -239,7 +241,7 @@ test('component is a data table with "reconfigure" options', (t) => {
                     comparator: 'EQ',
                     value: true,
                   },
-                }
+                },
               },
               showInReconfigure: true,
               showInAddChild: true,
@@ -277,6 +279,8 @@ test('component is a data table with "reconfigure" options', (t) => {
               showOnDrop: true,
               showTextStyleColor: true,
               allowedKinds: ['TEXT', 'URL'],
+              allowedClickThroughKinds: ['BELONGS_TO'],
+              allowedSplitButtonKinds: ['TEXT', 'URL'],
               pushToWrapper: {
                 name: 'WrapperLabel',
                 condition: {
@@ -285,7 +289,7 @@ test('component is a data table with "reconfigure" options', (t) => {
                   comparator: 'EQ',
                   value: true,
                 },
-              }
+              },
             },
             showInReconfigure: true,
             showInAddChild: true,
