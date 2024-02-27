@@ -24,6 +24,7 @@ export interface PrefabWrapper {
   descendants: PrefabReference[];
   optionCategories?: OptionCategory[];
   options: (PrefabWrapperLinkedOption | PrefabWrapperLinkedPartialOption)[];
+  displayType?: 'inline-block' | 'block';
 }
 
 export interface PrefabComponent {

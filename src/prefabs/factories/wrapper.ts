@@ -9,6 +9,7 @@ export type WrapperAttrs = {
   label?: string;
   optionCategories?: OptionCategory[];
   options?: Record<string, LinkedOptionProducer | LinkedPartialOptionProducer>;
+  displayType?: 'inline-block' | 'block';
 };
 
 /**
@@ -24,6 +25,9 @@ export const wrapper = (
   const options = Object.entries(attrs.options || {}).map(([key, linked]) =>
     linked(key),
   );
+
+  const { displayType } = attrs;
+
   const optionCategories =
     attrs.optionCategories && attrs.optionCategories.length !== 0
       ? { optionCategories: attrs.optionCategories }
@@ -31,6 +35,7 @@ export const wrapper = (
 
   return {
     type: 'WRAPPER',
+    displayType,
     ...labelField,
     ...optionCategories,
     options,
