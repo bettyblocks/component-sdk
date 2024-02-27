@@ -43,7 +43,14 @@ test('builds a wrapper prefab with descendants and inner wrapper', (t) => {
       {
         name: 'ROW',
         options: [],
-        descendants: [{ type: 'WRAPPER', options: [], descendants: [] }],
+        descendants: [
+          {
+            type: 'WRAPPER',
+            displayType: undefined,
+            options: [],
+            descendants: [],
+          },
+        ],
         type: 'COMPONENT',
       },
     ],
