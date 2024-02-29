@@ -9,7 +9,7 @@ export type WrapperAttrs = {
   label?: string;
   optionCategories?: OptionCategory[];
   options?: Record<string, LinkedOptionProducer | LinkedPartialOptionProducer>;
-  displayType?: 'inline-block' | 'block';
+  displayType?: 'inline-block' | 'block' | 'inline';
 };
 
 /**
