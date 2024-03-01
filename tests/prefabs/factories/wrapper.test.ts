@@ -8,6 +8,7 @@ test('builds a wrapper prefab', (t) => {
   const expected = {
     type: 'WRAPPER',
     options: [],
+    displayType: undefined,
     descendants: [],
   };
 
@@ -20,6 +21,7 @@ test('builds a wrapper prefab with descendants', (t) => {
   const expected = {
     type: 'WRAPPER',
     options: [],
+    displayType: undefined,
     descendants: [
       { name: 'ROW', options: [], descendants: [], type: 'COMPONENT' },
     ],
@@ -36,14 +38,35 @@ test('builds a wrapper prefab with descendants and inner wrapper', (t) => {
   const expected = {
     type: 'WRAPPER',
     options: [],
+    displayType: undefined,
     descendants: [
       {
         name: 'ROW',
         options: [],
-        descendants: [{ type: 'WRAPPER', options: [], descendants: [] }],
+        descendants: [
+          {
+            type: 'WRAPPER',
+            displayType: undefined,
+            options: [],
+            descendants: [],
+          },
+        ],
         type: 'COMPONENT',
       },
     ],
+  };
+
+  t.deepEqual(result, expected);
+  t.end();
+});
+
+test('Builds a wrapper with displayType', (t) => {
+  const result = wrapper({ displayType: 'inline-block' }, []);
+  const expected = {
+    type: 'WRAPPER',
+    options: [],
+    displayType: 'inline-block',
+    descendants: [],
   };
 
   t.deepEqual(result, expected);
