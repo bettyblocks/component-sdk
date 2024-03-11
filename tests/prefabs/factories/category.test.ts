@@ -55,7 +55,6 @@ test('an option category in a wrapper should accept options', (t) => {
   const expected = {
     type: 'WRAPPER',
     label: 'Wrapper label',
-    displayType: undefined,
     optionCategories: [
       {
         label: 'Category label',
