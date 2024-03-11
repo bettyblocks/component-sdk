@@ -1,15 +1,18 @@
-import type { PrefabReference } from '../types/component';
+import type { PrefabReference, PrefabWrapper } from '../types/component';
 import type {
   LinkedOptionProducer,
   LinkedPartialOptionProducer,
   OptionCategory,
+  OptionProducer,
 } from '../types/options';
 
 export type WrapperAttrs = {
   label?: string;
   optionCategories?: OptionCategory[];
-  options?: Record<string, LinkedOptionProducer | LinkedPartialOptionProducer>;
-  displayType?: 'inline-block' | 'block' | 'inline';
+  options?: Record<
+    string,
+    LinkedOptionProducer | LinkedPartialOptionProducer | OptionProducer
+  >;
 };
 
 /**
@@ -20,13 +23,11 @@ export type WrapperAttrs = {
 export const wrapper = (
   attrs: WrapperAttrs,
   descendants: PrefabReference[],
-): PrefabReference => {
+): PrefabWrapper => {
   const labelField = attrs.label ? { label: attrs.label } : {};
   const options = Object.entries(attrs.options || {}).map(([key, linked]) =>
     linked(key),
   );
-
-  const { displayType } = attrs;
 
   const optionCategories =
     attrs.optionCategories && attrs.optionCategories.length !== 0
@@ -35,7 +36,6 @@ export const wrapper = (
 
   return {
     type: 'WRAPPER',
-    displayType,
     ...labelField,
     ...optionCategories,
     options,

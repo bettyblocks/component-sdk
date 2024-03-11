@@ -23,8 +23,11 @@ export interface PrefabWrapper {
   label?: string;
   descendants: PrefabReference[];
   optionCategories?: OptionCategory[];
-  options: (PrefabWrapperLinkedOption | PrefabWrapperLinkedPartialOption)[];
-  displayType?: 'inline-block' | 'block' | 'inline';
+  options: (
+    | PrefabWrapperLinkedOption
+    | PrefabWrapperLinkedPartialOption
+    | PrefabComponentOption
+  )[];
 }
 
 export interface PrefabComponent {
