@@ -6,16 +6,16 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
         with:
           token: ${{ secrets.GH_TOKEN }}
-      - name: Use Node.js 16.11.1
-        uses: actions/setup-node@v1
+      - name: Use Node.js 22.4.1
+        uses: actions/setup-node@v4
         with:
-          node-version: '16.11.1'
-      - run: npm install
+          node-version: '22.4.1'
+      - run: yarn install
       - name: Run build:docs
-        run: npm run build:docs
+        run: yarn build:docs
       - name: Commit files
         run: |
           echo ${{ github.ref }}

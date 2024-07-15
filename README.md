@@ -1,4 +1,4 @@
-# Bettty SDK
+# Betty Component SDK
 
 A collection of APIs to develop on the Betty Blocks platform
 
@@ -11,18 +11,18 @@ A collection of APIs to develop on the Betty Blocks platform
 Generate documentation locally:
 
 ```bash
-    npm run build:docs
+    yarn build:docs
 ```
 
 ## Installation
 
-Install the sdk with npm
+Install the sdk with npm:
 
 ```bash
   npm install @betty-blocks/component-sdk --also=dev
 ```
 
-Install the sdk with yarn
+Install the sdk with yarn:
 
 ```bash
   yarn add -D @betty-blocks/component-sdk
@@ -30,13 +30,13 @@ Install the sdk with yarn
 
 ## Running Tests
 
-To run tests, run the following command
+To run tests, run the following command:
 
 ```bash
-  npm run test
+  yarn test
 ```
 
-## Develoment Notes
+## Development Notes
 
 Please add unit tests for all new functionality.
 
