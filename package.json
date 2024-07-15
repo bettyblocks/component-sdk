@@ -17,7 +17,7 @@
     "build:docs": "typedoc src/index.ts --exclude tests/**/*.test.ts",
     "fix": "prettier --check 'src/**/*.ts' 'tests/**/*.ts'",
     "fix:write": "prettier --write 'src/**/*.ts' 'tests/**/*.ts'",
-    "lint": "eslint",
+    "lint": "eslint src tests --ext .ts",
     "test": "ts-node node_modules/tape/bin/tape tests/**/*.test.ts",
     "prepare": "husky"
   },
