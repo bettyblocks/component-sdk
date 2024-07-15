@@ -10,14 +10,14 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Install packages
-        run: npm install
+        run: yarn install
       - name: Commit linter
         run: npx commitlint --from $(git rev-parse --short HEAD^1) --to $(git rev-parse --short HEAD^2)
       - name: Prettier
-        run: npm run fix:write
+        run: yarn fix:write
       - name: Build
-        run: npm run build
+        run: yarn build
       - name: Lint
-        run: npm run lint
+        run: yarn lint
       - name: Test
-        run: npm run test
+        run: yarn test
