@@ -10,7 +10,7 @@
     "url": "https://github.com/bettyblocks/component-sdk.git"
   },
   "engines": {
-    "node": ">=22.4.1"
+    "node": ">=20"
   },
   "scripts": {
     "build": "tsc --project tsconfig.build.json",
