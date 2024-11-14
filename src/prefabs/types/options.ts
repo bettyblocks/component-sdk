@@ -131,7 +131,7 @@ export interface PrefabComponentOptionBase {
     };
     createActionInputVariable?: {
       type: CreateActionInputVariableKind;
-      name: string;
+      name?: string;
       value?: string;
     };
     dataType?: string;
