@@ -17,6 +17,12 @@ export enum ActionVariableKind {
   STRING = 'STRING',
 }
 
+export enum CreateActionInputVariableKind {
+  CHECKBOX = 'BOOLEAN',
+  NUMBER = 'INTEGER',
+  TEXT = 'STRING',
+}
+
 export type ActionVariableType =
   | 'ARRAY'
   | 'BOOLEAN'
@@ -121,6 +127,11 @@ export interface PrefabComponentOptionBase {
       template: string;
       name?: string;
       permissions?: string;
+      value?: string;
+    };
+    createActionInputVariable?: {
+      type: CreateActionInputVariableKind;
+      name?: string;
       value?: string;
     };
     dataType?: string;
