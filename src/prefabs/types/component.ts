@@ -30,6 +30,12 @@ export interface PrefabWrapper {
   )[];
 }
 
+export interface OptionTemplates {
+  addChild?: {
+    options: PrefabComponentOption[];
+  };
+}
+
 export interface PrefabComponent {
   id?: string;
   type?: 'COMPONENT';
@@ -39,6 +45,7 @@ export interface PrefabComponent {
   name: string;
   optionCategories?: OptionCategory[];
   options: PrefabComponentOption[];
+  optionTemplates?: OptionTemplates;
   $afterCreate?: Hook[];
   $afterDelete?: Hook[];
   $onUpdate?: Hook[];

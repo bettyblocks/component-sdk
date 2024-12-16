@@ -1,4 +1,5 @@
 import type { IdentityRecordBy } from '../../type-utils';
+import { OptionProducer, PrefabComponentOption } from '../types';
 import type { PrefabComponent, PrefabReference } from '../types/component';
 
 function isNotNullEntry<T, X>(entry: [T, X]): entry is [T, NonNullable<X>] {
@@ -14,10 +15,16 @@ type UnresolvedAttributes = IdentityRecordBy<
   'nullable'
 >;
 
-const resolveAttributes = (attrs: UnresolvedAttributes): RequiredAttrs => {
-  const options = Object.entries(attrs.options)
+export const optionTemplateOptions = (
+  attrs: Record<string, OptionProducer | null>,
+): PrefabComponentOption[] =>
+  Object.entries(attrs)
     .filter(isNotNullEntry)
     .map(([key, option]) => option(key));
+
+const resolveAttributes = (attrs: UnresolvedAttributes): RequiredAttrs => {
+  const options = optionTemplateOptions(attrs.options);
+
   const optionCategories =
     attrs.optionCategories && attrs.optionCategories.length !== 0
       ? { optionCategories: attrs.optionCategories }
