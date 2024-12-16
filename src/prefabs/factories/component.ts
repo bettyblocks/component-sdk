@@ -16,16 +16,15 @@ type UnresolvedAttributes = IdentityRecordBy<
 >;
 
 export const optionTemplateOptions = (
-  attrs: Record<string, OptionProducer>,
+  attrs: Record<string, OptionProducer | null>,
 ): PrefabComponentOption[] =>
   Object.entries(attrs)
     .filter(isNotNullEntry)
     .map(([key, option]) => option(key));
 
 const resolveAttributes = (attrs: UnresolvedAttributes): RequiredAttrs => {
-  const options = Object.entries(attrs.options)
-    .filter(isNotNullEntry)
-    .map(([key, option]) => option(key));
+  const options = optionTemplateOptions(attrs.options);
+
   const optionCategories =
     attrs.optionCategories && attrs.optionCategories.length !== 0
       ? { optionCategories: attrs.optionCategories }
