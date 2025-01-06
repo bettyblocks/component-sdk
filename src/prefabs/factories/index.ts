@@ -4,3 +4,5 @@ export { partial } from './partial';
 export * from './style';
 export { prefab, BeforeCreateArgs } from './prefab';
 export * from './options';
+
+export * from './optionActions';
