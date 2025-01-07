@@ -30,9 +30,19 @@ export interface PrefabWrapper {
   )[];
 }
 
+export interface OptionAction {
+  action: string;
+  format?: string;
+  target: string;
+}
+
+export interface OptionActionBase {
+  onChange: OptionAction[];
+}
 export interface OptionTemplates {
   addChild?: {
     options: PrefabComponentOption[];
+    optionActions?: Record<string, OptionActionBase>;
   };
 }
 
