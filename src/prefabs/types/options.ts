@@ -21,6 +21,8 @@ export enum CreateActionInputVariableKind {
   CHECKBOX = 'BOOLEAN',
   NUMBER = 'INTEGER',
   TEXT = 'STRING',
+  ARRAY = 'ARRAY',
+  OBJECT = 'OBJECT',
 }
 
 export type ActionVariableType =
