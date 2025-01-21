@@ -233,6 +233,7 @@ test('component is a data table with "reconfigure" options', (t) => {
                 allowedKinds: ['TEXT', 'URL'],
                 allowedClickThroughKinds: ['BELONGS_TO'],
                 allowedSplitButtonKinds: ['TEXT', 'URL'],
+                disabledNames: ['id', 'created_at', 'updated_at'],
                 pushToWrapper: {
                   name: 'WrapperLabel',
                   condition: {
@@ -281,6 +282,7 @@ test('component is a data table with "reconfigure" options', (t) => {
               allowedKinds: ['TEXT', 'URL'],
               allowedClickThroughKinds: ['BELONGS_TO'],
               allowedSplitButtonKinds: ['TEXT', 'URL'],
+              disabledNames: ['id', 'created_at', 'updated_at'],
               pushToWrapper: {
                 name: 'WrapperLabel',
                 condition: {
