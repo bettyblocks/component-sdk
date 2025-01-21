@@ -5,4 +5,4 @@ export * from './style';
 export { prefab, BeforeCreateArgs } from './prefab';
 export * from './options';
 
-export * from './optionActions';
+export * from './optionSetters';
