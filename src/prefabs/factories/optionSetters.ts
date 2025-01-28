@@ -8,12 +8,16 @@ interface SetVariableOptionProps extends SetBaseOptionProps {
   format: Format;
 }
 
+interface SetModelOptionProps extends SetBaseOptionProps {
+  type?: 'referencedModel' | 'parent';
+}
+
 export function setVariableOption({ target, format }: SetVariableOptionProps) {
   return { action: 'setVariable', format, target };
 }
 
-export function setModelOption({ target }: SetBaseOptionProps) {
-  return { action: 'setModel', target };
+export function setModelOption({ target, type }: SetModelOptionProps) {
+  return { action: 'setModel', target, type: type || 'parent' };
 }
 
 export function setOptionToDefaultValue({ target }: SetBaseOptionProps) {
