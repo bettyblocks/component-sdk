@@ -1,11 +1,18 @@
 type Format = 'propertyLabel' | 'propertyValue' | 'static';
-
+interface Condition {
+  condition: 'property_is_relation' | 'property_is_property' | 'value_is_empty';
+  result: string;
+}
 interface SetBaseOptionProps {
   target: string;
 }
 
 interface SetVariableOptionProps extends SetBaseOptionProps {
   format: Format;
+}
+
+interface SetButtonGroupOptionProps extends SetBaseOptionProps {
+  conditions: Condition[];
 }
 
 export function setVariableOption({ target, format }: SetVariableOptionProps) {
@@ -26,4 +33,11 @@ export function setActionJSInputVariableOption({ target }: SetBaseOptionProps) {
 
 export function setPropertyOption({ target }: SetBaseOptionProps) {
   return { action: 'setProperty', target };
+}
+
+export function setButtonGroupOption({
+  target,
+  conditions,
+}: SetButtonGroupOptionProps) {
+  return { action: 'setButtonGroup', target, conditions };
 }
