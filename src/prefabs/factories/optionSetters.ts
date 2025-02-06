@@ -1,10 +1,7 @@
 type Format = 'propertyLabel' | 'propertyValue' | 'static';
-interface PropertyKindFormat {
-  kind: 'relation' | 'multiRelation' | 'property';
-}
 interface Condition {
-  is: string | PropertyKindFormat;
-  value: string;
+  condition: 'property_is_relation' | 'property_is_property' | 'value_is_empty';
+  result: string;
 }
 interface SetBaseOptionProps {
   target: string;
