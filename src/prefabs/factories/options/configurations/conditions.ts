@@ -10,7 +10,7 @@ export const showIfTrue = (key: string): Configuration['condition'] => ({
 export const showIf = (
   key: string,
   comparator: 'EQ',
-  value: string | boolean,
+  value: string | boolean | number,
 ): Configuration['condition'] => ({
   type: 'SHOW',
   option: key,
@@ -21,7 +21,7 @@ export const showIf = (
 export const hideIf = (
   key: string,
   comparator: 'EQ',
-  value: string | boolean,
+  value: string | boolean | number,
 ): Configuration['condition'] => ({
   type: 'HIDE',
   option: key,
