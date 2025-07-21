@@ -14,7 +14,7 @@ type Attributes =
   | Omit<ValueDefault, RedundantKeys>
   | Omit<ValueRef, RedundantKeys>;
 
-type ColorAttributes = Omit<Attributes, 'value'> & { ref?: {id?: string}, value: ThemeColor };
+type ColorAttributes = Omit<Attributes, 'value'> & { ref?: {id?: string}, value: ThemeColor | string };
 
 const defaultAttributes = {
   value: [],
