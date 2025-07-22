@@ -140,6 +140,7 @@ export interface PrefabComponentOptionBase {
     dependsOn?: string;
     disabled?: boolean;
     disabledNames?: string[];
+    hasThemeInherit?: boolean;
     mediaType?: 'IMAGE' | 'VIDEO';
     modal?: {
       type: 'MODEL_AND_PROPERTIES';
